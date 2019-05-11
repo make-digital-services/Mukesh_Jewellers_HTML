@@ -7,7 +7,7 @@ $("#login_form").submit(function(e){ //user clicks form submit button
  }
  console.log("aaaaaa", form_data, form_data.username)
      $.ajax({ 
-     url: "http://localhost/mjbackend/index.php/api/login",
+     url: "http://virarcity.com/mjbackend/index.php/API/login",
      type: "POST",
  contentType:"application/json; charset=utf-8",
      dataType:"json", 

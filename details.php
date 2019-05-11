@@ -14,13 +14,15 @@ $productName= $_GET['name'];
 
  if(isset($_POST["addToCart"])) { 
      echo "in add to cart";
-     $data_array =  array("customer"        => 1 );
-    $make_call = callAPI('GET', 'getUserDetails', false);
+     $data_array =  array("product_id"=>$productData['id'] );
+    $make_call = callAPI('POST', 'addToCart', json_encode($data_array));
     print_r($make_call);
   $response = json_decode($make_call, true);
-  $errors   = $response['message'];
   if($response['value']){
-      $data     = $response['data'];
+      $data     = $response['TotalItemsInCart'];
+    echo '<script> alert("Product added to Cart");</script>';
+  }else{
+     $errors = $response['message'];
   }
  }
 ?>

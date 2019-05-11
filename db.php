@@ -1,15 +1,19 @@
 <?php
 $con = mysqli_connect("localhost","root","","mukeshjewellers");
+// $con = mysqli_connect("localhost","virarcit_mukeshj","-H.3Kq67{sMz","virarcit_mukesj");
 
 
 $currency			= '₹ '; //currency symbol
 $imageServerIp = "http://localhost/mjbackend/uploads/";
-$apiUrl = "http://localhost/mjbackend/index.php/api/";
+$apiUrl = "http://localhost/mjbackend/index.php/API/";
+// $imageServerIp = "http://virarcity.com/mjbackend/uploads/";
+// $apiUrl = "http://virarcity.com/mjbackend/index.php/API/";
 // Check connection
 if (mysqli_connect_errno())
   {
   echo "Failed to connect to Database: " . mysqli_connect_error();
   }
+
 
 
   function callAPI($method, $url, $data){
@@ -32,14 +36,16 @@ if (mysqli_connect_errno())
     }
  
     // OPTIONS:
-    curl_setopt($curl, CURLOPT_URL,'http://localhost/mjbackend/index.php/api/'.$url);
+    curl_setopt($curl, CURLOPT_URL,'http://localhost/mjbackend/index.php/API/'.$url);
+   //  curl_setopt($curl, CURLOPT_URL,'http://virarcity.com/mjbackend/index.php/API/'.$url);
     curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-      //  'APIKEY: 111111111111111111111',
+       'Cookie: PHPSESSID=ug1df6atna68m1iof1ahht7hu7; ci_session=f5u6eliu9p821c3ktabc7282ucn3b974',
        'Content-Type: application/json',
     ));
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+   //  $cookiesFile = 'cookies.txt';
+   //  curl_setopt($ch, CURLOPT_COOKIEJAR, $cookiesFile); // write
     curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
- 
     // EXECUTE:
     $result = curl_exec($curl);
     if(!$result){die("Connection Failure");}

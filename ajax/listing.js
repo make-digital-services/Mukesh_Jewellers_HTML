@@ -13,6 +13,7 @@ function sort() {
         }
         $.ajax({
             url: "http://localhost/mjbackend/index.php/api/getAllProduct",
+            // url: "http://virarcity.com/mjbackend/index.php/API/getAllProduct",
             // url: "<?php echo $apiUrl ?>getAllProduct",
             type: 'POST',
             dataType: "json",
