@@ -484,7 +484,7 @@ footer.container-fluid .right-footer-links span a {
     height: auto !important;
 }
 
-form.product_form {
+.product_form {
     position: relative;
     /* border-left: thin solid #e4e4e4; */
     text-align: center;
@@ -510,7 +510,7 @@ form.product_form {
     margin: 0;
 }
 
-form.product_form h4 {
+.product_form h4 {
     font-size: 13px;
     padding: 0 15px;
     line-height: 22px;

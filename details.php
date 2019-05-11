@@ -39,7 +39,7 @@ $productName= $_GET['name'];
             </div>
             <div class="col-lg-6 product_details">
                 <h1><?php echo $productData['name']; ?></h1>
-                <section class="size-box">
+                <!-- <section class="size-box">
                     <span class="size-listed"><select name="" id="">
                             <option value="">Select Size</option>
                             <option value="">SM</option>
@@ -49,7 +49,7 @@ $productName= $_GET['name'];
                         </select> </span>
                     <span class="size-not-listed"> <a href="javascript:;">Size not listed ?</a> </span>
 
-                </section>
+                </section> -->
 
                 <section class="product-quantity">
                     <span class="qty-select">Qty <input value="1" type="number" min="1"></span>
@@ -69,12 +69,12 @@ $productName= $_GET['name'];
                     <h2>Product Details</h2>
                     <ul class="product-specs">
 
-                    <?php
+                        <?php
                         while($row = $productSpecification->fetch_assoc()){
                         echo '<li><span>'.$row["key"].'</span>'.$row["value"].'</li>';
                         }
                         ?>
-                      
+
                     </ul>
                 </section>
 
@@ -83,10 +83,15 @@ $productName= $_GET['name'];
 
         <div id="container" class="container">
             <div id="main" role="main">
+                <?php 
+                if($relatedProduct && $relatedProduct->num_rows>0){
+                   echo '<h4>SIMILAR PRODUCTS IN TREND</h4>';
+                }
+                ?>
                 <section class="slider">
                     <div class="flexslider1 carousel">
                         <ul class="slides">
-                        <?php
+                            <?php
                         while($row = $relatedProduct->fetch_assoc()){
                             echo  '<li><div class="related-pro-outer"><span class="related-pro"> <a href="#"><img src="'.$row["image"].'" /></a></span> </div> </li>';
                         }

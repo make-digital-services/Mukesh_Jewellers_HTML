@@ -41,7 +41,7 @@ require_once "header.php";
 </div>
 
 <!-- load js -->
-<!-- <script src="ajax/cart.js"></script> -->
+<script src="ajax/cart.js"></script>
 <?php
     require_once "footer.php";
 ?>
