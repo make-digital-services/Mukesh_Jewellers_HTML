@@ -1,11 +1,27 @@
 <?php
 require_once "db.php";
 require_once "header.php";
+if(isset($_POST['login']))
+   {
+    $data_array =  array("username"=>$_POST['username'], "password"=>$_POST['password'] );
+    $make_call = callAPI('POST', 'login',  json_encode($data_array));
+    $response = json_decode($make_call, true);
+    if($response['value']){
+     $data = $response['data'];
+    //  header('Location: index.php');
+    echo '<script>location.href= "index.php";</script>';
+    }else{
+      echo '<script> alert("Please Enter valid Username/Password");</script>';
+       $errors = $response['message'];
+    }
+    }
+
+
 ?>
 
 
 <div class="col-lg-3" style="margin:10% auto;">
-<form id="login_form">
+<form  method="post" id="login_form">
   <div class="form-group">
     <label for="email">Username:</label>
     <input type="text" name="username" class="form-control" id="email">
@@ -15,12 +31,12 @@ require_once "header.php";
     <input type="password" name="password" class="form-control" id="pwd">
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" name="login" class="btn btn-primary">Login</button>
 </form>
 </div>
 
 <!-- load js -->
-<script src="ajax/login.js"></script>
+<!-- <script src="ajax/login.js"></script> -->
 <?php
     require_once "footer.php";
 ?>

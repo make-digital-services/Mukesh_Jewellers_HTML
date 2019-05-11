@@ -32,7 +32,7 @@ if (mysqli_connect_errno())
     }
  
     // OPTIONS:
-    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_URL,'http://localhost/mjbackend/index.php/api/'.$url);
     curl_setopt($curl, CURLOPT_HTTPHEADER, array(
       //  'APIKEY: 111111111111111111111',
        'Content-Type: application/json',

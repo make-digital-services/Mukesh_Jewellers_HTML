@@ -10,6 +10,19 @@ $productName= $_GET['name'];
  $productImages = $con->query("select * from product_image where product_id=$productId");
  $productSpecification = $con->query("select * from `product_specification` where product_id=$productId");
  $relatedProduct = $con->query("SELECT p.`id`, p.`name`,pi.image , p.`price`, p.`discount`, p.`final_price` FROM `product` p LEFT JOIN product_image pi ON p.id=pi.product_id LEFT JOIN related_product rp ON rp.relatedproduct=p.id WHERE rp.product=$productId GROUP BY p.id");
+
+
+ if(isset($_POST["addToCart"])) { 
+     echo "in add to cart";
+     $data_array =  array("customer"        => 1 );
+    $make_call = callAPI('GET', 'getUserDetails', false);
+    print_r($make_call);
+  $response = json_decode($make_call, true);
+  $errors   = $response['message'];
+  if($response['value']){
+      $data     = $response['data'];
+  }
+ }
 ?>
 
 <div class="container-fluid details-container">
@@ -50,34 +63,35 @@ $productName= $_GET['name'];
                     <span class="size-not-listed"> <a href="javascript:;">Size not listed ?</a> </span>
 
                 </section> -->
+                <form method="post">
+                    <section class="product-quantity">
+                        <span class="qty-select">Qty <input value="1" type="number" min="1"></span>
+                        <span class="in-strock"><?php echo $productData['quantity']; ?> In Stock</span>
+                    </section>
+                    <section class="product-quantity">
+                        <span class="qty-select">Price : <?php echo $productData['final_price']; ?></span>
+                        <span class="in-strock"><?php echo $productData['price']; ?> </span>
+                    </section>
+                    <section class="product-buttons">
+                        <button type="submit" name="addToCart" class="produnt-details-btn add-to-cart"><i
+                                class="fa fa-shopping-bag"></i> Add to
+                            cart</button>
+                        <button class="produnt-details-btn compare-btn"><i class="fa fa-exchange"></i> Compare</button>
+                        <button class="produnt-details-btn wishlist-btn"><i class="fa fa-heart"></i> Wishlist</button>
+                    </section>
+                    <section class="produnt-spects-container">
+                        <h2>Product Details</h2>
+                        <ul class="product-specs">
 
-                <section class="product-quantity">
-                    <span class="qty-select">Qty <input value="1" type="number" min="1"></span>
-                    <span class="in-strock"><?php echo $productData['quantity']; ?> In Stock</span>
-                </section>
-                <section class="product-quantity">
-                    <span class="qty-select">Price : <?php echo $productData['final_price']; ?></span>
-                    <span class="in-strock"><?php echo $productData['price']; ?> </span>
-                </section>
-                <section class="product-buttons">
-                    <button class="produnt-details-btn add-to-cart"><i class="fa fa-shopping-bag"></i> Add to
-                        cart</button>
-                    <button class="produnt-details-btn compare-btn"><i class="fa fa-exchange"></i> Compare</button>
-                    <button class="produnt-details-btn wishlist-btn"><i class="fa fa-heart"></i> Wishlist</button>
-                </section>
-                <section class="produnt-spects-container">
-                    <h2>Product Details</h2>
-                    <ul class="product-specs">
-
-                        <?php
+                            <?php
                         while($row = $productSpecification->fetch_assoc()){
                         echo '<li><span>'.$row["key"].'</span>'.$row["value"].'</li>';
                         }
                         ?>
 
-                    </ul>
-                </section>
-
+                        </ul>
+                    </section>
+                </form>
             </div>
         </div>
 
