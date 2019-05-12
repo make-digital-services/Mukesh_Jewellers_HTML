@@ -35,7 +35,20 @@
     // });
     </script>
 </head>
+<?php
+require_once "db.php";
 
+$make_call = callAPI('GET', 'getCart', false);
+$response = json_decode($make_call, true);
+//  print_r($response);
+if($response['value']){
+    $cartdata= $response['data'];
+    $TotalItemsInCart = $response['TotalItemsInCart'];
+    $CartTotal = $response['CartTotal'];
+  }else{
+   $errors = $response['message'];
+}
+?>
 <body>
     <div id="loader"></div>
     <header>
@@ -62,9 +75,9 @@
                                     <li><a href="javascript:;"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="javascript:;"><i class="fa fa-instagram"></i></a></li>
                                     <li class="top-header-cart"><a href="cart.php" class="cart-box" id="cart-info"
-                                            title="View Cart"><span>0</span></a>
+                                            title="View Cart"><span><?php echo $TotalItemsInCart; ?></span></a>
                                     </li>
-                                    <li class="top-login-btn"><a href="javascript:;"><i class="fa fa-user"></i>
+                                    <li class="top-login-btn"><a href="login.php"><i class="fa fa-user"></i>
                                             <span id="username">Login</span></a></li>
 
                                 </ul>

@@ -60,7 +60,7 @@ echo '<li>
         '.$currency.'  '.$value['price'].' <span>'.$currency.''.$value['final_price'].'</span>
            <span class="total"> '.$currency.'  '.$value['quantity'] * $value['final_price'].'</span>
             <form method="POST">
-            <input type="text" name="id" value="'.$value['id'].'">
+            <input type="hidden" name="id" value="'.$value['id'].'">
             <input type="submit" name="removeCartItem" value="Delete" />
             </form>
             </p>
@@ -76,7 +76,7 @@ echo '<li>
 
 
                     </ul>
-                    <button>Place Order</button>
+                    <a href="order.php"><button>Place Order</button></a>
 
                 </div>
             </div>

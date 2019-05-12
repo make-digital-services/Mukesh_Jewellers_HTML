@@ -28,7 +28,9 @@ if($response['value']){
 <th>Date</th>
 <th>Amount</th>
 <th>Items</th>
-<th>Status</th></thead>';
+<th>Status</th>
+<th>Action</th>
+</thead>';
                         foreach($orderdata as $key => $value){
 echo '<tr>
 <td>'.$value['id'].'</td>
@@ -50,6 +52,7 @@ if($value['orderstatus']==4){
 if($value['orderstatus']==5){
     echo '<td>Cancel</td>';
 }
+echo'<td><a href="orderdetails.php?id='.$value['id'].'"><i class="fa fa-eye" aria-hidden="true"></i></a></td>';
 echo '</tr>';
   }
   }
@@ -69,8 +72,6 @@ echo '</tr>';
     </div>
 </div>
 
-<!-- load js -->
-<!-- <script src="ajax/cart.js"></script> -->
 <?php
     require_once "footer.php";
 ?>
