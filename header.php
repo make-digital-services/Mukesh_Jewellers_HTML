@@ -48,6 +48,14 @@ if($response['value']){
    $errors = $response['message'];
 }
 
+$make_callUser = callAPI('GET', 'getUserDetails', false);
+$responseUser = json_decode($make_callUser, true);
+if($responseUser['value']){
+    $userdata= $responseUser['data'];
+    }else{
+   $errors = $responseUser['message'];
+}
+
 if(isset($_POST['logout'])){
     $make_call = callAPI('GET', 'logout', false);
     $response = json_decode($make_call, true);
@@ -93,11 +101,23 @@ if(isset($_POST['logout'])){
                                             ?>
                                             </span></a>
                                     </li>
-                                    <li class="top-login-btn"><a href="login.php"><i class="fa fa-user"></i>
-                                            <span id="username">Login</span></a></li>
-                                            <form method="POST">
+                                    <?php
+                                    if(isset($userdata)){
+                                        ?>
+                                        <li class="top-login-btn">
+                                        <?php  echo $userdata['name']; ?>
+                                        <form method="POST">
                                              <button type="submit" name="logout">Logout</button>
                                             </form>
+                                        </li>
+
+                                    <?php 
+                                    }else{
+                                        ?>
+                                    <li class="top-login-btn"><a href="login.php"><i class="fa fa-user"></i>
+                               
+                                            <span id="username">Login</span></a></li>
+                                    <?php } ?> 
 
                                 </ul>
 
