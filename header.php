@@ -37,7 +37,6 @@
 </head>
 <?php
 require_once "db.php";
-
 $make_call = callAPI('GET', 'getCart', false);
 $response = json_decode($make_call, true);
 //  print_r($response);
@@ -47,6 +46,16 @@ if($response['value']){
     $CartTotal = $response['CartTotal'];
   }else{
    $errors = $response['message'];
+}
+
+if(isset($_POST['logout'])){
+    $make_call = callAPI('GET', 'logout', false);
+    $response = json_decode($make_call, true);
+    if($response['value']){
+        echo '<script> alert("User Logged out");</script>';
+    }else{
+        echo '<script> alert("Something went wrong");</script>';
+    }
 }
 ?>
 <body>
@@ -74,11 +83,21 @@ if($response['value']){
                                         <input class="searchbox" type="text" placeholder="Search"></li>
                                     <li><a href="javascript:;"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="javascript:;"><i class="fa fa-instagram"></i></a></li>
-                                    <li class="top-header-cart"><a href="cart.php" class="cart-box" id="cart-info"
-                                            title="View Cart"><span><?php echo $TotalItemsInCart; ?></span></a>
+                                    <li class="top-header-cart"><a href="cart.php" class="cart-box" 
+                                            title="View Cart"><span><?php 
+                                            if(isset($TotalItemsInCart)){
+                                                echo $TotalItemsInCart;
+                                            }else{
+                                                echo '0';
+                                            }
+                                            ?>
+                                            </span></a>
                                     </li>
                                     <li class="top-login-btn"><a href="login.php"><i class="fa fa-user"></i>
                                             <span id="username">Login</span></a></li>
+                                            <form method="POST">
+                                             <button type="submit" name="logout">Logout</button>
+                                            </form>
 
                                 </ul>
 

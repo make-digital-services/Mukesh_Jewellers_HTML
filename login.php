@@ -5,6 +5,7 @@ if(isset($_POST['login']))
    {
     $data_array =  array("username"=>$_POST['username'], "password"=>$_POST['password'] );
     $make_call = callAPI('POST', 'login',  json_encode($data_array));
+    // print_r($make_call);
     $response = json_decode($make_call, true);
     if($response['value']){
      $data = $response['data'];
@@ -32,6 +33,8 @@ if(isset($_POST['login']))
   </div>
 
   <button type="submit" name="login" class="btn btn-primary">Login</button>
+
+  <p>Not a member yet ? <a href="register.php">Join US</a></p>
 </form>
 </div>
 
