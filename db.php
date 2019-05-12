@@ -1,8 +1,6 @@
 <?php
 $con = mysqli_connect("localhost","root","","mukeshjewellers");
 // $con = mysqli_connect("localhost","virarcit_mukeshj","-H.3Kq67{sMz","virarcit_mukesj");
-
-
 $currency			= '₹ '; //currency symbol
 $imageServerIp = "http://localhost/mjbackend/uploads/";
 $apiUrl = "http://localhost/mjbackend/index.php/API/";
@@ -39,7 +37,7 @@ if (mysqli_connect_errno())
     curl_setopt($curl, CURLOPT_URL,'http://localhost/mjbackend/index.php/API/'.$url);
    //  curl_setopt($curl, CURLOPT_URL,'http://virarcity.com/mjbackend/index.php/API/'.$url);
     curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-       'Cookie: PHPSESSID=ug1df6atna68m1iof1ahht7hu7; ci_session=f5u6eliu9p821c3ktabc7282ucn3b974',
+       'Cookie: PHPSESSID='.$_COOKIE['PHPSESSID'].'; ci_session='.$_COOKIE['ci_session'],
        'Content-Type: application/json',
     ));
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);

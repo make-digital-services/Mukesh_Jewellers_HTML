@@ -19,20 +19,20 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
     <script>
-    $(document).ready(function() {
-        $(document).ajaxStart(function() {
-            $("#loader").css("display", "block");
-        });
-        $(document).ajaxComplete(function() {
-            $("#loader").css("display", "none");
-        });
+    // $(document).ready(function() {
+    //     $(document).ajaxStart(function() {
+    //         $("#loader").css("display", "block");
+    //     });
+    //     $(document).ajaxComplete(function() {
+    //         $("#loader").css("display", "none");
+    //     });
 
-        if (localStorage.getItem("userData")) {
-            var userData = JSON.parse(localStorage.getItem("userData"));
-            $("#username").html(userData.name);
-            //  alert(userData.name + "aaaaaa");
-        }
-    });
+    //     if (localStorage.getItem("userData")) {
+    //         var userData = JSON.parse(localStorage.getItem("userData"));
+    //         $("#username").html(userData.name);
+    //         //  alert(userData.name + "aaaaaa");
+    //     }
+    // });
     </script>
 </head>
 

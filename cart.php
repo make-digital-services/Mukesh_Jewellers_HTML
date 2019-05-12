@@ -2,36 +2,38 @@
 require_once "db.php";
 require_once "header.php";
 
-function getCart(){
+// function getCart(){
 $make_call = callAPI('GET', 'getCart', false);
 $response = json_decode($make_call, true);
-print_r($response);
+//  print_r($response);
 if($response['value']){
-    $cartdata = $response['data'];
+    $cartdata= $response['data'];
     $TotalItemsInCart = $response['TotalItemsInCart'];
     $CartTotal = $response['CartTotal'];
   }else{
    $errors = $response['message'];
 }
-}
+// }
 
-getCart();
+
 if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['id']))
 {
-    echo $_POST['id'].'aaa';
+    // echo $_POST['id'].'aaa';
     $data_array =  array("id"=>$_POST['id']);
     $make_call = callAPI('POST', 'deleteCart', json_encode($data_array));
-    print_r($make_call);
+    // print_r($make_call);
     $response = json_decode($make_call, true);
     if($response['value']){
         $TotalItemsInCart = $response['TotalItemsInCart'];
-        getCart();
+        // getCart();
+// unset($_POST);
+// unset($_REQUEST);
+// header('Location: cart.php');
+        exit;
       }else{
        $errors = $response['message'];
     }
 }
-
-
 ?>
 <div class="container-fluid cart-container">
     <div class="container">
@@ -40,7 +42,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['id']))
                 <div id="cart-container">
                     <ul>
                         <?php 
-                        if(isset($cartdata)){
+                        // getCart();
+                   if(isset($cartdata)){
                         foreach($cartdata as $key => $value){
 echo '<li>
 <div class="row">
@@ -64,29 +67,35 @@ echo '<li>
     </div>
 </div>
 </li>';
-                        }
-                        }
+  }
+  }
                         else{
                             echo '<h4>There are no items in your cart</h4>';
                         }
                         ?>
-                  
+
 
                     </ul>
+                    <button>Place Order</button>
 
                 </div>
             </div>
             <div class="col-lg-3">
-                <div id="product-total">
+            <?php
+            if(isset($TotalItemsInCart)){
+            echo   '<div id="product-total">              
                     PRICE DETAILS
-                    Price (<?php echo isset($TotalItemsInCart)?isset($TotalItemsInCart):0; ?> items)
-                    <?php echo $currency .' '.isset($CartTotal)?isset($CartTotal):0; ?>
+                    Price ('.$TotalItemsInCart.' items)
+                     '.$currency.''. $CartTotal.'
                     Delivery Charges
                     ₹0
                     Amount Payable
-                    <?php echo $currency .' '.isset($CartTotal)?isset($CartTotal):0; ?>
+                    '.$currency.''. $CartTotal.'
                     <!-- Your Total Savings on this order ₹620 -->
-                </div>
+                   
+                </div>';
+            }
+                ?>
             </div>
         </div>
     </div>

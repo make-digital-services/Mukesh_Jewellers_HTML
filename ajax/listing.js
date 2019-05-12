@@ -63,7 +63,7 @@ function addToCart(event) {
         product_id: event.srcElement.id
     }
     $.ajax({
-        url: "<?php echo $apiUrl ?>addToCart",
+        url: "http://localhost/mjbackend/index.php/api/addToCart",
         type: "POST",
         crossDomain: true,
         xhrFields: {
@@ -83,12 +83,9 @@ function addToCart(event) {
     })
     // event.preventDefault();
 }
-
-
 //Show Items in Cart
 $(".cart-box").click(function(e) { //when user clicks on cart box
     e.preventDefault();
     $(".shopping-cart-box").fadeIn(); //display cart box
     $("#shopping-cart-results").html('<img src="images/ajax-loader.gif">'); //show loading image
-
 });

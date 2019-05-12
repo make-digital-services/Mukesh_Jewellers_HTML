@@ -13,8 +13,7 @@ $productName= $_GET['name'];
 
 
  if(isset($_POST["addToCart"])) { 
-     echo "in add to cart";
-     $data_array =  array("product_id"=>$productData['id'] );
+    $data_array =  array("product_id"=>$productData['id'], "quantity"=>$_POST["quantity"]);
     $make_call = callAPI('POST', 'addToCart', json_encode($data_array));
     print_r($make_call);
   $response = json_decode($make_call, true);
@@ -67,7 +66,7 @@ $productName= $_GET['name'];
                 </section> -->
                 <form method="post">
                     <section class="product-quantity">
-                        <span class="qty-select">Qty <input value="1" type="number" min="1"></span>
+                        <span class="qty-select">Qty <input value="1" name="quantity" type="number" min="1"></span>
                         <span class="in-strock"><?php echo $productData['quantity']; ?> In Stock</span>
                     </section>
                     <section class="product-quantity">
