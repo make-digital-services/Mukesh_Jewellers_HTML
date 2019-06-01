@@ -20,25 +20,24 @@ if(isset($_POST['register']))
 ?>
 
 
-<div class="col-lg-3" style="margin:10% auto;">
-<form  method="post" id="login_form">
-  <div class="form-group">
-    <label for="email">Name:</label>
-    <input required type="text" name="name" class="form-control" id="name">
-  </div>
-  <div class="form-group">
-    <label for="email">Email:</label>
-    <input required type="email" name="email" class="form-control" id="email">
-  </div>
-  <div class="form-group">
-    <label for="email">Username:</label>
-    <input required type="text" name="username" class="form-control" id="username">
-  </div>
-  
-
-  <button type="submit" name="register" class="btn btn-primary">Submit</button>
-
-</form>
+<div class="col-xs-12" id="loginContainer">
+    <div class="col-lg-3">
+        <form method="post" id="login_form">
+            <div class="form-group">
+                <label for="email">Name:</label>
+                <input required type="text" name="name" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input required type="email" name="email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+                <label for="email">Username:</label>
+                <input required type="text" name="username" class="form-control" id="username">
+            </div>
+            <button type="submit" name="register" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 </div>
 
 <!-- load js -->

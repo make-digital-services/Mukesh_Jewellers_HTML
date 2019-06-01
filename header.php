@@ -66,6 +66,7 @@ if(isset($_POST['logout'])){
     }
 }
 ?>
+
 <body>
     <div id="loader"></div>
     <header>
@@ -91,7 +92,7 @@ if(isset($_POST['logout'])){
                                         <input class="searchbox" type="text" placeholder="Search"></li>
                                     <li><a href="javascript:;"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="javascript:;"><i class="fa fa-instagram"></i></a></li>
-                                    <li class="top-header-cart"><a href="cart.php" class="cart-box" 
+                                    <li class="top-header-cart"><a href="cart.php" class="cart-box"
                                             title="View Cart"><span><?php 
                                             if(isset($TotalItemsInCart)){
                                                 echo $TotalItemsInCart;
@@ -104,20 +105,37 @@ if(isset($_POST['logout'])){
                                     <?php
                                     if(isset($userdata)){
                                         ?>
-                                        <li class="top-login-btn">
-                                        <?php  echo $userdata['name']; ?>
-                                        <form method="POST">
-                                             <button type="submit" name="logout">Logout</button>
-                                            </form>
-                                        </li>
+                                    <li class="top-login-btn logout">
+                                        <span>
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                        <span class="username-login"> Welcome,
+                                            <strong><?php echo $userdata['name']; ?></strong></span>
+                                        <div class="dropdown-login">
+                                            <ul class="dropdown_parent">
+                                                <li><a href="javascript:;">My Account</a></li>
+                                                <li><a href="javascript:;">Change Password</a></li>
+                                                <li><a href="javascript:;">Order History</a></li>
+                                                <li><a href="javascript:;">MY Wishlist</a></li>
+                                                <li>
+                                                    <form method="POST">
+                                                        <button type="submit" name="logout">Logout</button>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </li>
 
                                     <?php 
                                     }else{
                                         ?>
-                                    <li class="top-login-btn"><a href="login.php"><i class="fa fa-user"></i>
-                               
-                                            <span id="username">Login</span></a></li>
-                                    <?php } ?> 
+                                    <li class="top-login-btn">
+                                        <a href="login.php">
+                                            <i class="fa fa-user"></i><span id="username">Login</span>
+                                        </a>
+                                    </li>
+                                    <?php } ?>
 
                                 </ul>
 

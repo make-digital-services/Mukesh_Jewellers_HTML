@@ -13,7 +13,7 @@ $sql = "SELECT p.`id`, p.`name`,pi.image , p.`description`, p.`price`, p.`discou
 $listingData = $con->query($sql);
 
 ?>
-
+<link rel="stylesheet" type="text/css" href="http://cdn.webrupee.com/font">
 
 <div class="container-fluid">
     <div class="row">
@@ -70,9 +70,10 @@ $listingData = $con->query($sql);
                     <li>Price</li>
                     <ul>
                         <?php
+                       
                         $metals = $con->query("SELECT `id`, `name`, `min`, `max`, `status`, `date` FROM `price_range` WHERE status=1");
                         while($row = $metals->fetch_assoc()) {
-                        echo '<li> <input type="radio" name="price" value="'.$row["min"].'-'.$row["max"].'"  onclick="addFilters(event,`price`)"> <label > '.$row["name"].'</label></li>';
+                         echo '<li> <input type="radio" id="'.str_replace('?','₹',$row["name"]).'" name="price" value="'.$row["min"].'-'.$row["max"].'"  onclick="addFilters(event,`price`)"> <label for="'.str_replace('?','₹',$row["name"]).'"> '.str_replace('?','₹',$row["name"]).'</label></li>';
                         }
                         ?>
                     </ul>

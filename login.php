@@ -16,26 +16,26 @@ if(isset($_POST['login']))
        $errors = $response['message'];
     }
     }
-
-
 ?>
 
 
-<div class="col-lg-3" style="margin:10% auto;">
-<form  method="post" id="login_form">
-  <div class="form-group">
-    <label for="email">Username:</label>
-    <input type="text" name="username" class="form-control" id="email">
-  </div>
-  <div class="form-group">
-    <label for="pwd">Password:</label>
-    <input type="password" name="password" class="form-control" id="pwd">
-  </div>
+<div class="col-xs-12" id="loginContainer">
+    <div class="col-lg-3">
+        <form method="post" id="login_form">
+            <div class="form-group">
+                <label for="email">Username:</label>
+                <input type="text" name="username" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" name="password" class="form-control" id="pwd">
+            </div>
 
-  <button type="submit" name="login" class="btn btn-primary">Login</button>
+            <button type="submit" name="login" class="btn btn-primary">Login</button>
 
-  <p>Not a member yet ? <a href="register.php">Join US</a></p>
-</form>
+            <p class="not-member">Not a member yet ? <a href="register.php">Join US</a></p>
+        </form>
+    </div>
 </div>
 
 <!-- load js -->

@@ -36,10 +36,12 @@ if (mysqli_connect_errno())
     // OPTIONS:
     curl_setopt($curl, CURLOPT_URL,'http://localhost/mjbackend/index.php/API/'.$url);
    //  curl_setopt($curl, CURLOPT_URL,'http://virarcity.com/mjbackend/index.php/API/'.$url);
+   // if (isset($_COOKIE['PHPSESSID']) && isset($_COOKIE['ci_session'])){
     curl_setopt($curl, CURLOPT_HTTPHEADER, array(
        'Cookie: PHPSESSID='.$_COOKIE['PHPSESSID'].'; ci_session='.$_COOKIE['ci_session'],
        'Content-Type: application/json',
     ));
+   // }
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
    //  $cookiesFile = 'cookies.txt';
    //  curl_setopt($ch, CURLOPT_COOKIEJAR, $cookiesFile); // write
