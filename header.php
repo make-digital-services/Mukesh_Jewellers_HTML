@@ -8,6 +8,7 @@
     <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
     <link href="css/flexslider.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/jquery.exzoom.css" rel="stylesheet" />
@@ -76,7 +77,7 @@ if(isset($_POST['logout'])){
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="logo">
-                                <img src="images/logo.png" alt="">
+                                <img src="images/logo1.png" alt="">
                             </div>
                         </div>
                         <div class="col-lg-9 right-box-header">

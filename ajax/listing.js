@@ -12,13 +12,13 @@ function sort() {
             filterObj: filterObj
         }
         $.ajax({
-            url: "http://localhost/mjbackend/index.php/api/getAllProduct",
+            url: "http://192.168.0.35/mjbackend/index.php/api/getAllProduct",
             // url: "http://virarcity.com/mjbackend/index.php/API/getAllProduct",
             // url: "<?php echo $apiUrl ?>getAllProduct",
             type: 'POST',
             dataType: "json",
             data: JSON.stringify(filter_data)
-        }).done(function(data) { //on success
+        }).done(function (data) { //on success
             console.log("aaaaaaaaa", data);
             $('#showing').html(data.data.length);
             $("#product-listings").html(data.html); //total items count fetch in cart-info element
@@ -72,8 +72,8 @@ function addToCart(event) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: JSON.stringify(form_data)
-    }).done(function(data) { //on success
-          var userData = JSON.parse(localStorage.getItem("userData"));
+    }).done(function (data) { //on success
+        var userData = JSON.parse(localStorage.getItem("userData"));
         $("#username").html(userData.name);
         $("#cart-info").html(data.TotalItemsInCart); //total items count fetch in cart-info element
         alert("Item added to Cart!"); //alert user
@@ -84,7 +84,7 @@ function addToCart(event) {
     // event.preventDefault();
 }
 //Show Items in Cart
-$(".cart-box").click(function(e) { //when user clicks on cart box
+$(".cart-box").click(function (e) { //when user clicks on cart box
     e.preventDefault();
     $(".shopping-cart-box").fadeIn(); //display cart box
     $("#shopping-cart-results").html('<img src="images/ajax-loader.gif">'); //show loading image
