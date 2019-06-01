@@ -1,6 +1,6 @@
 <?php
-$con = mysqli_connect("localhost","root","","mukeshjewellers");
-// $con = mysqli_connect("localhost","virarcit_mukeshj","-H.3Kq67{sMz","virarcit_mukesj");
+$con = mysqli_connect("192.168.0.35","root","BUmoSfyO3Gozq5uK","mukeshjewellers"); 
+// // $con = mysqli_connect("localhost","virarcit_mukeshj","-H.3Kq67{sMz","virarcit_mukesj");
 $currency			= '₹ '; //currency symbol
 $imageServerIp = "http://localhost/mjbackend/uploads/";
 $apiUrl = "http://localhost/mjbackend/index.php/API/";
