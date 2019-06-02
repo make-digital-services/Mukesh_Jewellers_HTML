@@ -1,21 +1,21 @@
 <?php
 require_once "db.php";
 require_once "header.php";
-if(isset($_POST['login']))
-   {
-    $data_array =  array("username"=>$_POST['username'], "password"=>$_POST['password'] );
-    $make_call = callAPI('POST', 'login',  json_encode($data_array));
-    // print_r($make_call);
-    $response = json_decode($make_call, true);
-    if($response['value']){
-     $data = $response['data'];
-    //  header('Location: index.php');
-    echo '<script>location.href= "index.php";</script>';
-    }else{
-      echo '<script> alert("Please Enter valid Username/Password");</script>';
-       $errors = $response['message'];
-    }
-    }
+// if(isset($_POST['login']))
+//    {
+//     $data_array =  array("username"=>$_POST['username'], "password"=>$_POST['password'] );
+//     $make_call = callAPI('POST', 'login',  json_encode($data_array));
+//     // print_r($make_call);
+//     $response = json_decode($make_call, true);
+//     if($response['value']){
+//      $data = $response['data'];
+//     //  header('Location: index.php');
+//     echo '<script>location.href= "index.php";</script>';
+//     }else{
+//       echo '<script> alert("Please Enter valid Username/Password");</script>';
+//        $errors = $response['message'];
+//     }
+//     }
 ?>
 
 
@@ -39,7 +39,7 @@ if(isset($_POST['login']))
 </div>
 
 <!-- load js -->
-<!-- <script src="ajax/login.js"></script> -->
+<script src="ajax/login.js"></script>
 <?php
     require_once "footer.php";
 ?>

@@ -73,19 +73,15 @@ function addToCart(event) {
         dataType: "json",
         data: JSON.stringify(form_data)
     }).done(function (data) { //on success
-        var userData = JSON.parse(localStorage.getItem("userData"));
-        $("#username").html(userData.name);
-        $("#cart-info").html(data.TotalItemsInCart); //total items count fetch in cart-info element
+        // var userData = JSON.parse(localStorage.getItem("userData"));
+        // $("#username").html(userData.name);
+        // $("#cart-info").html(data.TotalItemsInCart); //total items count fetch in cart-info element
         alert("Item added to Cart!"); //alert user
-        if ($(".shopping-cart-box").css("display") == "block") { //if cart box is still visible
-            $(".cart-box").trigger("click"); //trigger click to update the cart box.
-        }
+        $('#header').load('header.php');
+        // location.reload();
+        // if ($(".shopping-cart-box").css("display") == "block") { //if cart box is still visible
+        //     $(".cart-box").trigger("click"); //trigger click to update the cart box.
+        // }
     })
     // event.preventDefault();
 }
-//Show Items in Cart
-$(".cart-box").click(function (e) { //when user clicks on cart box
-    e.preventDefault();
-    $(".shopping-cart-box").fadeIn(); //display cart box
-    $("#shopping-cart-results").html('<img src="images/ajax-loader.gif">'); //show loading image
-});

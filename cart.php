@@ -21,18 +21,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['id']))
     // echo $_POST['id'].'aaa';
     $data_array =  array("id"=>$_POST['id']);
     $make_call = callAPI('POST', 'deleteCart', json_encode($data_array));
-    // print_r($make_call);
-    $response = json_decode($make_call, true);
-    if($response['value']){
+     $response = json_decode($make_call, true);
+     if($response['value']){
+        // header("Refresh: 60");
         $TotalItemsInCart = $response['TotalItemsInCart'];
+        
         // getCart();
-// unset($_POST);
-// unset($_REQUEST);
-// header('Location: cart.php');
+        // unset($_POST);
+        // unset($_REQUEST);
+        // header('Location: cart.php');
         exit;
-      }else{
-       $errors = $response['message'];
+    }else{
+        $errors = $response['message'];
     }
+    echo "<script> $('#header').load('header.php');</script>";
 }
 ?>
 <div class="container-fluid cart-container">

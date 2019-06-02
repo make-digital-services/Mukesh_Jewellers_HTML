@@ -15,10 +15,15 @@ $("#login_form").submit(function(e){ //user clicks form submit button
      data: JSON.stringify(form_data)
  }).done(function(data){ //on success
      console.log("aaaaaaaaa", data);
-     localStorage.setItem("userData", JSON.stringify(data.data));
-     $("#username").html(data.data.name);
-     alert("Loged in successfully");
- location.href= "index.php";
+if(data.value){
+    alert("Loged in successfully");
+    location.href= "index.php";
+
+}else{
+    alert(data.message);
+}
+    //  localStorage.setItem("userData", JSON.stringify(data.data));
+    //  $("#username").html(data.data.name);
  })
  e.preventDefault();
 });

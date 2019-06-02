@@ -50,6 +50,7 @@ if($response['value']){
 }
 
 $make_callUser = callAPI('GET', 'getUserDetails', false);
+// print_r($make_callUser);
 $responseUser = json_decode($make_callUser, true);
 if($responseUser['value']){
     $userdata= $responseUser['data'];
@@ -62,6 +63,7 @@ if(isset($_POST['logout'])){
     $response = json_decode($make_call, true);
     if($response['value']){
         echo '<script> alert("User Logged out");</script>';
+        echo '<script>location.href= "index.php";</script>';
     }else{
         echo '<script> alert("Something went wrong");</script>';
     }
@@ -70,7 +72,7 @@ if(isset($_POST['logout'])){
 
 <body>
     <div id="loader"></div>
-    <header>
+    <header id="header">
         <div class="logo-container container-fluid">
             <div class="row">
                 <div class="container">

@@ -35,24 +35,27 @@ if (mysqli_connect_errno())
  
     // OPTIONS:
     curl_setopt($curl, CURLOPT_URL,'http://192.168.0.35/mjbackend/index.php/API/'.$url);
-   //  curl_setopt($curl, CURLOPT_URL,'http://virarcity.com/mjbackend/index.php/API/'.$url);
-   if (isset($_COOKIE['ci_session'])){
-   $sess =  'Cookie: PHPSESSID='.$_COOKIE['PHPSESSID'].'; ci_session='.$_COOKIE['ci_session'];
-   }else{
-      $sess = "";
+    if(isset($_COOKIE['ci_session'])){
+       $coo= 'Cookie: ci_session='.$_COOKIE['ci_session'];
+      //  $coo= 'Cookie: PHPSESSID='.$_COOKIE['PHPSESSID'].'; ci_session='.$_COOKIE['ci_session'];
+    }else{
+      $coo='';
    }
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-      $sess ,
-       'Content-Type: application/json',
-    ));
+   curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+       $coo ,
+      'Content-Type: application/json',
+   ));
    // }
+   
+   $cookieFile = "http://192.168.0.35/mjbackend/test";
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-   //  $cookiesFile = 'cookies.txt';
-   //  curl_setopt($ch, CURLOPT_COOKIEJAR, $cookiesFile); // write
+   //Tell cUrl about the cookie file
+// curl_setopt($curl,CURLOPT_COOKIEJAR, $cookieFile);  //tell cUrl where to write cookie data
+// curl_setopt($curl,CURLOPT_COOKIEFILE, $cookieFile); //tell cUrl where to read cookie data
     curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
     // EXECUTE:
     $result = curl_exec($curl);
-    if(!$result){die("Connection Failure");}
+     if(!$result){die("Connection Failure");}
     curl_close($curl);
     return $result;
  }
