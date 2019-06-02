@@ -47,7 +47,7 @@ if (mysqli_connect_errno())
    ));
    // }
    
-   $cookieFile = "http://192.168.0.35/mjbackend/test";
+   // $cookieFile = "http://192.168.0.35/mjbackend/test";
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
    //Tell cUrl about the cookie file
 // curl_setopt($curl,CURLOPT_COOKIEJAR, $cookieFile);  //tell cUrl where to write cookie data

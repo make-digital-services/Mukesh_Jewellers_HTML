@@ -29,6 +29,58 @@ require_once "header.php";
                         </form>
                     </div>
                 </div>
+
+
+                <div class="checkout-container">
+                    <div class="checkout-tab-heading">
+                        <h3>Billing Details</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" id="checkout-billing-form">
+                            <div class="form-group">
+                                <label for="">Name</label>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="name"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                            <label for="">Address</label>
+                                <textarea rows="4" required name="address" class="form-control" cols="50"
+                                    placeholder="Address"></textarea>
+                            </div>
+                            <div class="form-group">
+                            <label for="">Country</label>
+                                <select id="country" name="country" class="form-control" placeholder="country" required>
+                                    <option value="India">India</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                            <label for="">State</label>
+                                <select id="state" name="state" class="form-control" placeholder="state" required>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                            <label for="">City</label>
+                                <select id="city" name="city" class="form-control" placeholder="city" required>
+                                    <option value="India">India</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                            <label for="">Pin Code</label>
+                                <select id="pin" name="pin" class="form-control" placeholder="pin" required>
+                                    <option value="India">India</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" id="login" value="Login" class="btn login_btn">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Signup" id="signup" class="btn login_btn">
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

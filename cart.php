@@ -32,7 +32,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['id']))
            unset($cartdata);
         }
         echo "<script> $('#header').load('header.php');</script>";
-        echo "<script>showToaster(Product removed successfully','error');</script>";
+        echo "<script>showToaster('Product removed successfully','error');</script>";
         $TotalItemsInCart = $responseDelete['TotalItemsInCart'];
          }else{
         $errors = $responseDelete['message'];

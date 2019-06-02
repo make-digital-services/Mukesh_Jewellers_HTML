@@ -82,7 +82,7 @@ if(isset($_POST['logout'])){
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="logo">
-                                <img src="images/logo1.png" alt="">
+                             <a href="index.php">   <img src="images/logo1.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-9 right-box-header">
