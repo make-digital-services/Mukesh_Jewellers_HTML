@@ -1328,3 +1328,17 @@ form#login_form .btn.btn-primary {
 }
 
 /*End Login Page */
+
+
+/*End checkout Page */
+.checkout-container .checkout-tab-heading {
+    background: #750002;
+    color: white;
+    padding: 4px 18px;
+}
+
+.checkout-container .card-body {
+    background: white;
+    background: white;
+    padding: 42px 20px;
+}
