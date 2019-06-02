@@ -62,7 +62,8 @@ if(isset($_POST['logout'])){
     $make_call = callAPI('GET', 'logout', false);
     $response = json_decode($make_call, true);
     if($response['value']){
-        echo '<script> alert("User Logged out");</script>';
+        echo "<script>showToaster('User logged out successfully','success')</script>";
+
         echo '<script>location.href= "index.php";</script>';
     }else{
         echo '<script> alert("Something went wrong");</script>';
@@ -72,9 +73,11 @@ if(isset($_POST['logout'])){
 
 <body>
     <div id="loader"></div>
+    <div id="toaster"></div>
     <header id="header">
+        
         <div class="logo-container container-fluid">
-            <div class="row">
+               <div class="row">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3">

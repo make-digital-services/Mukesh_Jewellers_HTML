@@ -14,13 +14,13 @@ $("#login_form").submit(function(e){ //user clicks form submit button
      dataType:"json", 
      data: JSON.stringify(form_data)
  }).done(function(data){ //on success
-     console.log("aaaaaaaaa", data);
 if(data.value){
-    alert("Loged in successfully");
+     showToaster("Loged in successfully!","success");
     location.href= "index.php";
 
 }else{
-    alert(data.message);
+    showToaster(data.message,"error");
+    
 }
     //  localStorage.setItem("userData", JSON.stringify(data.data));
     //  $("#username").html(data.data.name);

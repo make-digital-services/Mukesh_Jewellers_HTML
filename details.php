@@ -15,10 +15,10 @@ $productName= $_GET['name'];
  if(isset($_POST["addToCart"])) { 
     $data_array =  array("product_id"=>$productData['id'], "quantity"=>$_POST["quantity"]);
     $make_call = callAPI('POST', 'addToCart', json_encode($data_array));
-    print_r($make_call);
-  $response = json_decode($make_call, true);
+    $response = json_decode($make_call, true);
   if($response['value']){
       $data     = $response['TotalItemsInCart'];
+    echo "<script> $('#header').load('header.php')</script>";
     echo '<script> alert("Product added to Cart");</script>';
   }else{
      $errors = $response['message'];

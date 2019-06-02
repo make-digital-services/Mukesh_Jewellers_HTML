@@ -55,6 +55,7 @@ if (mysqli_connect_errno())
     curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
     // EXECUTE:
     $result = curl_exec($curl);
+   //  print_r($result);
      if(!$result){die("Connection Failure");}
     curl_close($curl);
     return $result;

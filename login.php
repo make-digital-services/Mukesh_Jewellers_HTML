@@ -39,6 +39,7 @@ require_once "header.php";
 </div>
 
 <!-- load js -->
+<script src="js/common.js"></script>
 <script src="ajax/login.js"></script>
 <?php
     require_once "footer.php";

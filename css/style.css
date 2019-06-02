@@ -19,6 +19,26 @@ body {
     margin: 0;
 }
 
+#toaster {
+    position: fixed;
+    transition: all 0.5s;
+    visibility: hidden;
+    opacity: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 999;
+    background: #0000007a;
+    color: #fff;
+    padding: 5px;
+}
+
+#toaster.success{
+    background-color: green;
+}
+#toaster.error{
+    background-color: red;
+}
 
 .offer-banner-inner:nth-child(odd) .offer-banner:before {
     transform: translateX(-50%);

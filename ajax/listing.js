@@ -1,3 +1,4 @@
+
 var filterObj = {
     metal: [],
     purity: [],
@@ -19,7 +20,7 @@ function sort() {
             dataType: "json",
             data: JSON.stringify(filter_data)
         }).done(function (data) { //on success
-            console.log("aaaaaaaaa", data);
+            // console.log("aaaaaaaaa", data);
             $('#showing').html(data.data.length);
             $("#product-listings").html(data.html); //total items count fetch in cart-info element
 
@@ -73,15 +74,8 @@ function addToCart(event) {
         dataType: "json",
         data: JSON.stringify(form_data)
     }).done(function (data) { //on success
-        // var userData = JSON.parse(localStorage.getItem("userData"));
-        // $("#username").html(userData.name);
-        // $("#cart-info").html(data.TotalItemsInCart); //total items count fetch in cart-info element
-        alert("Item added to Cart!"); //alert user
-        $('#header').load('header.php');
-        // location.reload();
-        // if ($(".shopping-cart-box").css("display") == "block") { //if cart box is still visible
-        //     $(".cart-box").trigger("click"); //trigger click to update the cart box.
-        // }
-    })
+        showToaster("Product added to Cart!","success");
+           $('#header').load('header.php');
+            })
     // event.preventDefault();
 }
