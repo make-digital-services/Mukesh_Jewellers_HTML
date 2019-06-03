@@ -51,6 +51,7 @@ if($response['value']){
 }
 
 $make_callUser = callAPI('GET', 'getUserDetails', false);
+// print_r($make_callUser);
 $responseUser = json_decode($make_callUser, true);
 if($responseUser['value']){
     $userdata= $responseUser['data'];
@@ -62,7 +63,9 @@ if(isset($_POST['logout'])){
     $make_call = callAPI('GET', 'logout', false);
     $response = json_decode($make_call, true);
     if($response['value']){
-        echo '<script> alert("User Logged out");</script>';
+        echo "<script>showToaster('User logged out successfully','success')</script>";
+
+        echo '<script>location.href= "index.php";</script>';
     }else{
         echo '<script> alert("Something went wrong");</script>';
     }
@@ -71,14 +74,16 @@ if(isset($_POST['logout'])){
 
 <body>
     <div id="loader"></div>
-    <header>
+    <div id="toaster"></div>
+    <header id="header">
+        
         <div class="logo-container container-fluid">
-            <div class="row">
+               <div class="row">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="logo">
-                                <img src="images/logo1.png" alt="">
+                             <a href="index.php">   <img src="images/logo1.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-9 right-box-header">

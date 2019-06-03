@@ -14,11 +14,16 @@ $("#login_form").submit(function(e){ //user clicks form submit button
      dataType:"json", 
      data: JSON.stringify(form_data)
  }).done(function(data){ //on success
-     console.log("aaaaaaaaa", data);
-     localStorage.setItem("userData", JSON.stringify(data.data));
-     $("#username").html(data.data.name);
-     alert("Loged in successfully");
- location.href= "index.php";
+if(data.value){
+     showToaster("Loged in successfully!","success");
+    location.href= "index.php";
+
+}else{
+    showToaster(data.message,"error");
+    
+}
+    //  localStorage.setItem("userData", JSON.stringify(data.data));
+    //  $("#username").html(data.data.name);
  })
  e.preventDefault();
 });

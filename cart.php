@@ -1,8 +1,6 @@
 <?php
 require_once "db.php";
 require_once "header.php";
-
-// function getCart(){
 $make_call = callAPI('GET', 'getCart', false);
 $response = json_decode($make_call, true);
 //  print_r($response);
@@ -13,29 +11,36 @@ if($response['value']){
   }else{
    $errors = $response['message'];
 }
-// }
-
+ 
+ 
 
 if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['id']))
 {
     // echo $_POST['id'].'aaa';
     $data_array =  array("id"=>$_POST['id']);
-    $make_call = callAPI('POST', 'deleteCart', json_encode($data_array));
-    // print_r($make_call);
-    $response = json_decode($make_call, true);
-    if($response['value']){
-        $TotalItemsInCart = $response['TotalItemsInCart'];
-        // getCart();
-// unset($_POST);
-// unset($_REQUEST);
-// header('Location: cart.php');
-        exit;
-      }else{
-       $errors = $response['message'];
+    $make_callDelete = callAPI('POST', 'deleteCart', json_encode($data_array));
+    $responseDelete = json_decode($make_callDelete, true);
+     if($responseDelete['value']){
+         $make_call = callAPI('GET', 'getCart', false);
+         $response = json_decode($make_call, true);
+        if($response['value']){
+            $cartdata= $response['data'];
+            $TotalItemsInCart = $response['TotalItemsInCart'];
+            $CartTotal = $response['CartTotal'];
+          }else{
+           $errors = $response['message'];
+           unset($cartdata);
+        }
+        echo "<script> $('#header').load('header.php');</script>";
+        echo "<script>showToaster('Product removed successfully','error');</script>";
+        $TotalItemsInCart = $responseDelete['TotalItemsInCart'];
+         }else{
+        $errors = $responseDelete['message'];
     }
-}
+   }
 ?>
-<div class="container-fluid cart-container">
+
+<div class="container-fluid cart-container" id="cart">
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
@@ -102,6 +107,7 @@ echo '<li>
 </div>
 
 <!-- load js -->
+<script src="js/common.js"></script>
 <!-- <script src="ajax/cart.js"></script> -->
 <?php
     require_once "footer.php";

@@ -118,6 +118,7 @@ $listingData = $con->query($sql);
 <script>
 var categoryId = <?php echo $categoryId ?>;
 </script>
+<script src="js/common.js"></script>
 <script src="ajax/listing.js"></script>
 <?php
     require_once "footer.php";
