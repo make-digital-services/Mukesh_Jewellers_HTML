@@ -1331,14 +1331,126 @@ form#login_form .btn.btn-primary {
 
 
 /*End checkout Page */
-.checkout-container .checkout-tab-heading {
-    background: #750002;
-    color: white;
-    padding: 4px 18px;
+
+
+
+.checkout_container {
+    background: whitesmoke;
+    padding: 16px 26px 15px 26px;
 }
 
-.checkout-container .card-body {
+.checkout_container .tab {
     background: white;
+}
+
+.checkout_container .tab_heading {
+    padding: 13px 0 14px 26px;
+    border-radius: 4px 4px 0 0;
+    margin-top: 9px;
+}
+
+.checkout_container .tab .active {
+    background: #620002;
+    color: white;
+}
+
+.checkout_container .tab .disactive {
+    background: #ececec;
+    color: #8a8989;
+}
+
+.checkout_container .tab_heading h5 {
+    font-size: 1.15rem;
+}
+
+.checkout_container .tab_body {
+    padding: 24px 38px;
+}
+
+.checkout_container .tab_body input::placeholder {
+    color: #828282;
+}
+
+.checkout_container .tab_body input {
+    font-size: 14px;
+    padding: 10px 22px;
+    margin-bottom: 8px;
+}
+
+.checkout_container .tab_body .login_btn {
+    background: #620002;
+    color: white;
+    width: 100%;
+    padding: 6px 0 8px 0;
+}
+
+.checkout_container .tab_body .div_desc {
+    margin-top: 37px;
+}
+
+.checkout_container .tab_body .div_desc p {
+    text-align: center;
+    font-size: 14px;
+    color: #828282;
+}
+
+.checkout_container .login_with_social a {
+    padding: 11px 20px;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 1px;
+    -webkit-box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
+    transition: background-color .218s, border-color .218s, box-shadow .218s;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.checkout_container .login_with_social .facebook {
+    background: #4267B2;
+    color: white;
+    margin-right: 10px;
+}
+
+.checkout_container .login_with_social i {
+    padding-right: 8px;
+    font-size: 17px;
+}
+
+.checkout_container .login_with_social .google i {
+    color: #EA4335;
+}
+
+.checkout_container .login_with_social .google {
+    color: #9a9a9a;
     background: white;
-    padding: 42px 20px;
+}
+
+.checkout_container .tab_body .signup_btn {
+    background: #cac7c7;
+    color: #616060;
+    width: 100%;
+    padding: 6px 0 8px 0;
+    margin-top: 33px;
+
+}
+
+.login_with_social .facebook {
+    padding: 10px 16px;
+    background: #4267B2;
+    color: white;
+    text-decoration: none;
+}
+
+.login_with_social .google {
+    padding: 10px 16px;
+    background: #4267B2;
+    color: white;
+    text-decoration: none;
+}
+
+.checkout_container .cust_btn1 {
+    background: maroon;
+    color: white;
 }
