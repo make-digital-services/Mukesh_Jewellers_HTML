@@ -42,11 +42,86 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['id']))
 
 <div class="container-fluid cart-container" id="cart">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-9">
-                <div id="cart-container">
-                    <ul>
-                        <?php 
+        <div class="cart-container tab">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div id="cart-container">
+                        <div class="tab_heading active">
+                            <h5 class="mb-0">My Cart</h5>
+                        </div>
+                        <div class="tab_body">
+                            <div class="row">
+                                <div class="col-lg-3 pl-0">
+                                    <img class="img-fluid" src="images/goldchain.jpg" alt="">
+                                </div>
+                                <div class="col-lg-9">
+                                    <p class="name mt-2">GOLD NECKLACE WITH WHITE STONES</p>
+                                    <div class="">
+                                        <span class="quntity d-block">1</span>
+                                        <span class="price d-inline-block">$1520</span>
+                                        <span class="final_price d-inline-block">$2520</span>
+                                        <span>
+                                            <form method="POST">
+                                                <input type="hidden" name="id" value="'.$value['id'].'">
+                                                <input type="submit" name="removeCartItem" class="remove_btn"
+                                                    value="Delete" />
+                                            </form>
+                                        </span>
+                                    </div>
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="place_order_container d-flex justify-content-between">
+                            <div class="total">
+                                Total Price :
+                            </div>
+                            <div>
+                                <a href="order.php"><button class="place_btn">Place Order</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div id="product-total">
+                        <div class="title">
+                            Price Details
+                        </div>
+                        <div class="body">
+                            <div class="main_1 d-flex justify-content-between">
+                                <div>
+                                    Price (1)
+                                </div>
+                                <div>
+                                    500
+                                </div>
+                            </div>
+                            <div class="main_2 d-flex  justify-content-between">
+                                <div>
+                                    Delivery Charges
+                                </div>
+                                <div>
+                                    ₹0
+                                </div>
+                            </div>
+                            <div class="main_3 d-flex  justify-content-between">
+                                <div>
+                                    Amount Payable
+                                </div>
+                                <div>
+                                    0
+                                </div>
+                            </div>
+                            <div class="saving">
+                                Your Total Savings on this order ₹620
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul>
+                <?php 
                         // getCart();
                    if(isset($cartdata)){
                         foreach($cartdata as $key => $value){
@@ -60,7 +135,7 @@ echo '<li>
         '.$value['name'].'
         </p>
         <p>
-        '.$value['quantity'].'
+        '.$value['quantity'].'s
         <span>
         '.$currency.'  '.$value['price'].' <span>'.$currency.''.$value['final_price'].'</span>
            <span class="total"> '.$currency.'  '.$value['quantity'] * $value['final_price'].'</span>
@@ -74,19 +149,18 @@ echo '<li>
 </li>';
   }
   }
+
                         else{
-                            echo '<h4>There are no items in your cart</h4>';
+                            echo '<h4 style="color:#7e2429;">There are no items in your cart</h4>';
                         }
                         ?>
 
 
-                    </ul>
-                    <a href="order.php"><button>Place Order</button></a>
-
-                </div>
-            </div>
-            <div class="col-lg-3">
-            <?php
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <?php
             if(isset($TotalItemsInCart)){
             echo   '<div id="product-total">              
                     PRICE DETAILS
@@ -101,11 +175,12 @@ echo '<li>
                 </div>';
             }
                 ?>
-            </div>
-        </div>
     </div>
 </div>
-
+</div>
+</div>
+</div>
+</div>
 <!-- load js -->
 <script src="js/common.js"></script>
 <!-- <script src="ajax/cart.js"></script> -->

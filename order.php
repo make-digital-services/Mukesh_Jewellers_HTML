@@ -9,17 +9,56 @@ if($response['value']){
    }else{
    $errors = $response['message'];
 }
-
-
-
 ?>
+<div class="container-fluid cart-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="order_container">
+                    <div class="tab">
+                        <div class="tab_heading">
+                            <h5 class="mb-0">My Orders</h5>
+                        </div>
+                        <div class="tab_body">
+                            <table class="table table-responsive">
+                                <thead>
+                                    <th width="20%">Order Id</th>
+                                    <th width="35%">Date</th>
+                                    <th width="10%">Amount</th>
+                                    <th width="10%">Items</th>
+                                    <th width="15%">Status</th>
+                                    <th width="10%">Action</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>05/10/2019</td>
+                                        <td>2586</td>
+                                        <td>5</td>
+                                        <td>Status</td>
+                                        <td><a href="orderdetails.php?id='.$value['id'].'" class="view_details_btn"><i
+                                                    class="fa fa-eye" aria-hidden="true"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="total">
+                                <p>Order Total : </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 <div class="container-fluid cart-container">
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
                 <div id="cart-container">
                     <table style="width:100%; border:1px solid #ccc">
-                   
+
                         <?php 
                    if(isset($orderdata)){
 
@@ -33,7 +72,7 @@ if($response['value']){
 </thead>';
                         foreach($orderdata as $key => $value){
 echo '<tr>
-<td>'.$value['id'].'</td>
+<td>'.$value['id'].'1</td>
 <td>'. date("d F Y",strtotime($value['timestamp'])).'</td>
 <td>'.$value['finalamount'].'</td>
 <td>'.$value['items'].'</td>';
@@ -63,11 +102,11 @@ echo '</tr>';
 
 
                     </table>
-                
+
 
                 </div>
             </div>
-           
+
         </div>
     </div>
 </div>
