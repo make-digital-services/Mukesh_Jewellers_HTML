@@ -2,10 +2,10 @@
 require_once "db.php";
 require_once "header.php";
 ?>
-<div class="container-fluid details-container">
+<div class="container-fluid" id="checkout">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-xl-10">
+            <div class="col-md-12 col-xl-10 m-auto">
                 <div class="checkout_container">
                     <div class="login_container tab">
                         <div class="tab_heading active">
@@ -82,16 +82,15 @@ require_once "header.php";
                         <div class="tab_body">
                             <div class="errors">
                             </div>
-                            <form action="" method="post" id="delivery-address-form">
+                            <form action="" method="post" id="deliveryaddressform">
                                 <div class="form-group">
                                     <label for="">Name</label>
-                                    <input type="text" id="name" name="name" class="form-control" placeholder="name"
-                                        required>
+                                    <input type="text" id="name" name="name" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Address</label>
-                                    <textarea rows="4" required name="address" class="form-control" cols="50"
-                                        placeholder="Address"></textarea>
+                                    <textarea rows="4" required name="address" class="form-control"
+                                        cols="50"></textarea>
                                 </div>
                                 <div class="form-group mb-4">
                                     <div class="row">
@@ -141,17 +140,16 @@ require_once "header.php";
                         <div class="tab_body">
                             <div class="errors">
                             </div>
-                            <form action="" method="post" id="billing-address-form">
+                            <form action="" method="post" id="billingaddressform">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="">Name</label>
-                                        <input type="text" id="name" name="name" class="form-control" placeholder="name"
-                                            required>
+                                        <input type="text" id="name" name="name" class="form-control" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="">Address</label>
-                                        <textarea rows="4" required name="address" class="form-control" cols="50"
-                                            placeholder="Address"></textarea>
+                                        <textarea rows="4" required name="address" class="form-control"
+                                            cols="50"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group mb-4">

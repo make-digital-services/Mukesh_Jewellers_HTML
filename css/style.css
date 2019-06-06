@@ -1349,13 +1349,22 @@ form#login_form .btn.btn-primary {
 }
 
 /*End Login Page */
+#checkout,
+.wishlist,
+#cart,
+#order,
+#my_account,
+#change_password {
+    padding: 40px 0;
+}
+
 
 .checkout_container {
     background: whitesmoke;
     padding: 16px 26px 15px 26px;
 }
 
-.checkout_container .tab {
+.tab {
     background: white;
 }
 
@@ -1365,34 +1374,33 @@ form#login_form .btn.btn-primary {
     margin-top: 9px;
 }
 
-.checkout_container .tab .active {
+.tab .active {
     background: #620002;
     color: white;
 }
 
-.checkout_container .tab .disactive {
+.tab .disactive {
     background: #ececec;
-    color: #8a8989;
+    color: #620002;
 }
 
-.checkout_container .tab_heading h5 {
+.tab_heading h5 {
     font-size: 1.15rem;
 }
 
-.checkout_container .tab_body,
-#cart-container .tab_body {
+.tab_body {
     padding: 24px 38px;
 }
 
-.checkout_container .tab_body input::placeholder {
+.tab_body input::placeholder {
     color: #828282;
 }
 
-.checkout_container .tab_body input,
-.checkout_container .tab_body select,
-.checkout_container .tab_body textarea {
+.tab_body input,
+.tab_body select,
+.tab_body textarea {
     font-size: 14px;
-    padding: 10px 22px;
+    padding-left: 22px;
     margin-bottom: 8px;
 }
 
@@ -1499,7 +1507,6 @@ form#login_form .btn.btn-primary {
 #cart .cart-container,
 #order_container {
     background: whitesmoke;
-    margin: 40px 0;
     padding: 16px 26px 15px 26px;
 }
 
@@ -1638,12 +1645,8 @@ form#login_form .btn.btn-primary {
 }
 
 /*End order Page */
-.wishlist {
-    padding: 40px 0;
-}
-
 #wishlist_container {
-    padding: 40px 25px 40px 25px;
+    padding: 16px 26px 15px 26px;
     background: whitesmoke;
 }
 
@@ -1651,22 +1654,26 @@ form#login_form .btn.btn-primary {
     padding: 21px 24px 21px 25px;
 }
 
-#wishlist_container .navigation_container {
+#wishlist_container .navigation_container,
+#myaccount_container .navigation_container {
     background: white;
     margin-top: 9px;
 }
 
-#wishlist_container .navigation_container ul {
+#wishlist_container .navigation_container ul,
+#myaccount_container .navigation_container ul {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-#wishlist_container .navigation_container ul li {
+#wishlist_container .navigation_container ul li,
+#myaccount_container .navigation_container ul li {
     border-bottom: 1px solid #e6e3e3;
 }
 
-#wishlist_container .navigation_container ul li a {
+#wishlist_container .navigation_container ul li a,
+#myaccount_container .navigation_container ul li a {
     padding: 10px 24px;
     display: block;
     text-decoration: none;
@@ -1674,14 +1681,76 @@ form#login_form .btn.btn-primary {
     font-weight: 600;
 }
 
-#wishlist_container .navigation_container ul li.active {
+#wishlist_container .navigation_container ul li.active,
+#myaccount_container .navigation_container ul li.active {
     background: #620002;
 }
 
-#wishlist_container .navigation_container ul li.active a {
+#wishlist_container .navigation_container ul li.active a,
+#myaccount_container .navigation_container ul li.active a {
     color: white;
 }
 
-#wishlist_container .navigation_container ul li a i {
+#wishlist_container .navigation_container ul li a i,
+#myaccount_container .navigation_container ul li a i {
     margin-right: 10px;
+}
+
+/*End wishlist Page */
+
+#myaccount_container {
+    background: whitesmoke;
+    padding: 16px 26px 15px 26px;
+}
+
+#myaccount_container #savepbtn,
+#myaccount_container #saveabtn {
+    background: #7e2429;
+    color: white;
+    padding: 5px 23px;
+}
+
+#myaccount_container .address .span1 {
+    font-weight: 600;
+    display: inline-block;
+    margin-right: 13px;
+    font-size: 15px;
+}
+
+#myaccount_container .editdeletbtn {
+    text-decoration: none !important;
+    display: inline-block;
+    margin-right: 7px;
+    color: maroon;
+}
+
+/*End my Account Page */
+#changepassword_container #changepass {
+    background: #620002;
+    color: white;
+    display: block;
+    width: 100%;
+    margin-top: 36px;
+}
+
+#content {
+    padding: 40px 0;
+}
+
+#content_container,
+#changepassword_container .tab_body {
+    padding: 16px 26px 15px 26px;
+    background: white;
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .08);
+}
+
+#content_container h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 13px;
+}
+
+#content_container p {
+    font-size: 15px;
 }

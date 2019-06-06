@@ -9,20 +9,19 @@ if($response['value']){
   }else{
    $errors = $response['message'];
 }
-
-
-
 ?>
-
 <div class="container-fluid cart-container">
     <div class="container">
-<div class="row">
-<div class="col-lg-12">
-<h2><?php echo $contentdata['name'] ?></h2>
-
-<p><?php echo $contentdata['description'] ?></p>
-</div>
-</div>
+        <div id="content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="content_container">
+                        <h2><?php echo $contentdata['name'] ?>dfdf</h2>
+                        <p><?php echo $contentdata['description'] ?>fdg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
