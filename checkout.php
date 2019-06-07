@@ -2,7 +2,7 @@
 require_once "db.php";
 require_once "header.php";
 ?>
-<div class="container-fluid" id="checkout">
+<div class="container-fluid details-container" id="checkout">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-xl-10 m-auto">
@@ -143,28 +143,28 @@ require_once "header.php";
                             <form action="" method="post" id="billingaddressform">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label for="">Name</label>
-                                        <input type="text" id="name" name="name" class="form-control" required>
+                                        <label for="name1">Name</label>
+                                        <input type="text" id="name1" name="name1" class="form-control" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="">Address</label>
-                                        <textarea rows="4" required name="address" class="form-control"
+                                        <label for="address1">Address</label>
+                                        <textarea rows="4" required name="address1" id="address1" class="form-control"
                                             cols="50"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group mb-4">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label for="">City</label>
-                                            <select id="city" name="city" class="form-control" placeholder="city"
+                                            <label for="city1">City</label>
+                                            <select id="city1" name="city1" class="form-control" placeholder="city"
                                                 required>
                                                 <option value="India">Mumbai</option>
                                             </select>
 
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="">State</label>
-                                            <select id="state" name="state" class="form-control" placeholder="state"
+                                            <label for="state1">State</label>
+                                            <select id="state1" name="state1" class="form-control" placeholder="state"
                                                 required>
                                                 <option value="Maharashtra">Maharashtra</option>
                                             </select>
@@ -175,15 +175,15 @@ require_once "header.php";
                                 <div class="form-group mb-4">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label for="">Country</label>
-                                            <select id="country" name="country" class="form-control"
+                                            <label for="country1">Country</label>
+                                            <select id="country1" name="country1" class="form-control"
                                                 placeholder="country" required>
                                                 <option value="India">India</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="">Pin Code</label>
-                                            <input type="text" name="pin" id="pin" class="form-control" required>
+                                            <label for="pin1">Pin Code</label>
+                                            <input type="text" name="pin1" id="pin1" class="form-control" required>
                                         </div>
                                     </div>
                                 </div>

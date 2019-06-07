@@ -1354,7 +1354,9 @@ form#login_form .btn.btn-primary {
 #cart,
 #order,
 #my_account,
-#change_password {
+#change_password,
+#compare,
+#quickpage {
     padding: 40px 0;
 }
 
@@ -1698,7 +1700,8 @@ form#login_form .btn.btn-primary {
 
 /*End wishlist Page */
 
-#myaccount_container {
+#myaccount_container,
+#contactus #contactus_container {
     background: whitesmoke;
     padding: 16px 26px 15px 26px;
 }
@@ -1753,4 +1756,145 @@ form#login_form .btn.btn-primary {
 
 #content_container p {
     font-size: 15px;
+}
+
+/*End content Page */
+
+#contactus {
+    padding: 40px 0;
+}
+
+#contactus .tab_body #contactusbtn {
+    background: #7e2429;
+    color: white;
+    padding: 8px 28px;
+    margin-top: 23px;
+    overflow: hidden;
+}
+
+#contactus .address_cotainer {
+    background: white;
+    margin-top: 9px;
+    border-radius: 4px 4px 0 0;
+}
+
+#contactus .heading {
+    padding: 13px 16px 14px 15px;
+    border-radius: 4px 4px 0 0;
+    border-bottom: 1px solid #dedede;
+}
+
+#contactus .heading h5 {
+    font-size: 1.15rem;
+    color: #7e2429;
+}
+
+#contactus .descriptions {
+    padding: 13px 16px 14px 17px;
+}
+
+#contactus .descriptions .media-body {
+    margin-left: 15px;
+    font-size: 15px;
+}
+
+#contactus .descriptions i {
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+#contactus .descriptions .socials li {
+    list-style-type: none;
+    display: inline-block;
+}
+
+#contactus .descriptions .socials li a {
+    color: #797878;
+    margin-left: 10px;
+    margin-top: 8px;
+    display: block;
+}
+
+#contactus .descriptions .socials li a:hover {
+    color: #7e2429;
+}
+
+#contactus .descriptions .socials li a i {
+    font-size: 18px;
+}
+
+/*End compare Page */
+#compare table tr:nth-child(even) {
+    background: #ecebeb6e;
+}
+
+#compare table tr td {
+    border: 1px solid #d8cfcf;
+    font-size: 14px;
+}
+
+#compare table tr td #style {
+    text-decoration: none;
+}
+
+#compare h1 {
+    font-size: 25px;
+}
+
+#compare table tr td #deletebtn {
+    position: absolute;
+    right: 11px;
+    color: #620002;
+}
+
+#compare table tr td #deletebtn i {
+    font-size: 18px;
+}
+
+#compare table tr td .img-custom {
+    width: 150px;
+    height: auto;
+}
+
+/*End quick page Page */
+#quickview_container {
+    background: whitesmoke;
+    padding: 24px;
+}
+
+#quickview_container .quick_wrapper {
+    background: white;
+    padding: 16px 26px 15px 26px;
+}
+
+#quickview_container .quick_wrapper .des {
+    border-bottom: 1px solid #dccccc;
+}
+
+#quickview_container .quick_wrapper .description h1 {
+    margin-top: 10px;
+    font-size: 25px;
+}
+
+#quickview_container .quick_wrapper .description .offerprice {
+    color: #7f1a1a;
+    font-size: 18px;
+}
+
+#quickview_container .quick_wrapper .description .price {
+    font-size: 14px;
+    margin-left: 11px;
+    text-decoration: line-through;
+    color: #9a9a9a;
+}
+
+#quickview_container .quick_wrapper .description #detailsbtn {
+    text-decoration: none;
+    color: #7f1a1a;
+}
+
+#quickview_container .quick_wrapper #addcartbtn {
+    background: #7f1a1a;
+    color: white;
+    margin-top: 10px;
 }
