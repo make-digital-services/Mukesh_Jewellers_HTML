@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['id']))
                 <div class="col-lg-8">
                     <div id="cart-container">
                         <div class="tab_heading active">
-                            <h5 class="mb-0">My Cart</h5>
+                            <h1 class="mb-0">My Cart</h1>
                         </div>
                         <div class="tab_body">
                             <div class="row">

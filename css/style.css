@@ -1390,6 +1390,10 @@ form#login_form .btn.btn-primary {
     font-size: 1.15rem;
 }
 
+.tab_heading h1 {
+    font-size: 1.15rem;
+}
+
 .tab_body {
     padding: 24px 38px;
 }

@@ -21,7 +21,7 @@ require_once "header.php";
                 <div class="col-lg-9">
                     <div class="tab">
                         <div class="tab_heading">
-                            <h5 class="mb-0">My Wishlist</h5>
+                            <h1 class="mb-0">My Wishlist</h1>
                         </div>
                         <div class="tab_body">
                             <div class="row">
