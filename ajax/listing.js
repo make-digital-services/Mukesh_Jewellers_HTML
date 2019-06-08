@@ -1,4 +1,3 @@
-
 var filterObj = {
     metal: [],
     purity: [],
@@ -64,7 +63,7 @@ function addToCart(event) {
         product_id: event.srcElement.id
     }
     $.ajax({
-        url: "http://localhost/mjbackend/index.php/api/addToCart",
+        url: "http://192.168.0.35/mjbackend/index.php/api/addToCart",
         type: "POST",
         crossDomain: true,
         xhrFields: {
@@ -74,8 +73,8 @@ function addToCart(event) {
         dataType: "json",
         data: JSON.stringify(form_data)
     }).done(function (data) { //on success
-        showToaster("Product added to Cart!","success");
-           $('#header').load('header.php');
-            })
+        showToaster("Product added to Cart!", "success");
+        $('#header').load('header.php');
+    })
     // event.preventDefault();
 }

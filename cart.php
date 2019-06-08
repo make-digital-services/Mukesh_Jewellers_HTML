@@ -78,7 +78,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['id']))
                                 Total Price :
                             </div>
                             <div>
-                                <a href="order.php"><button class="place_btn">Place Order</button></a>
+                                <a href="#"><button class="place_btn">Place Order</button></a>
                             </div>
                         </div>
                     </div>
