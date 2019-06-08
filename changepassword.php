@@ -1,6 +1,24 @@
 <?php
 require_once "db.php";
 require_once "header.php";
+
+if($_SERVER['REQUEST_METHOD'] == "POST")
+{
+    // echo $_POST['id'].'aaa';
+    $data_array =  array("oldpass"=>$_POST['oldpass'],"newpass"=>$_POST['newpass']);
+    $make_call = callAPI('POST', 'changePassword', json_encode($data_array));
+    $response = json_decode($make_call, true);
+      if($response['value']){
+        echo "<script>showToaster('Password changed successfully','success');</script>";
+         }else{
+             ?>
+        
+      <script>
+      var msg = "<?php echo $response['message'];?>";
+      showToaster(msg,'error');</script>
+      <?php
+    }
+   }
 ?>
 <div class="container-fluid details-container" id="change_password">
     <div class="container">
@@ -12,7 +30,7 @@ require_once "header.php";
                             <h5 class="mb-0">Change Password</h5>
                         </div>
                         <div class="tab_body">
-                            <form action="post" id="changepassword">
+                            <form method="POST" action="changepassword.php" id="changepassword">
                                 <div class="form-group">
                                     <label for="oldpass">Old Password</label>
                                     <input type="password" name="oldpass" id="oldpass" class="form-control" required>

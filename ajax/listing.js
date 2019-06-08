@@ -65,7 +65,7 @@ function addToCart(event) {
     $.ajax({
         url: "http://192.168.0.35/mjbackend/index.php/api/addToCart",
         type: "POST",
-        crossDomain: true,
+        crossDomain: false,
         xhrFields: {
             withCredentials: true
         },
