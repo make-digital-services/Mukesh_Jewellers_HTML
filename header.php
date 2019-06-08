@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/jquery.exzoom.css" rel="stylesheet" />
     <title>Mukesh Jewellers</title>
@@ -120,10 +120,10 @@ if(isset($_POST['logout'])){
                                             <strong><?php echo $userdata['name']; ?></strong></span>
                                         <div class="dropdown-login">
                                             <ul class="dropdown_parent">
-                                                <li><a href="javascript:;">My Account</a></li>
-                                                <li><a href="javascript:;">Change Password</a></li>
-                                                <li><a href="javascript:;">Order History</a></li>
-                                                <li><a href="javascript:;">MY Wishlist</a></li>
+                                                <li><a href="myaccount.php">My Account</a></li>
+                                                <li><a href="changepassword.php">Change Password</a></li>
+                                                <li><a href="#">Order History</a></li>
+                                                <li><a href="">MY Wishlist</a></li>
                                                 <li>
                                                     <form method="POST">
                                                         <button type="submit" name="logout">Logout</button>
@@ -176,3 +176,6 @@ if(isset($_POST['logout'])){
             </div>
         </div>
     </header>
+
+    <!-- load js -->
+<script src="js/common.js"></script>
