@@ -5,7 +5,7 @@ require_once "header.php";
 <div class="container-fluid details-container" id="checkout">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-xl-10 m-auto">
+            <div class="col-md-12 col-lg-7">
                 <div class="checkout_container">
                     <div class="login_container tab">
                         <div class="tab_heading active">
@@ -29,9 +29,8 @@ require_once "header.php";
                                             <button type="submit" id="login" class="btn login_btn">LOGIN</button>
                                         </div>
                                     </form>
-                                    <div class="div_desc">
-                                        <p>or Login using</p>
-                                    </div>
+                                </div>
+                                <div class="col-md-6">
                                     <div class="login_with_social text-center">
                                         <a href="http://" class="facebook"><i class="fa fa-facebook"></i>Facebook</a>
                                         <a href="http://" class="google"><i class="fa fa-google-plus"></i>Google</a>
@@ -40,37 +39,6 @@ require_once "header.php";
                                         <button type="submit" id="signup" class="btn signup_btn" class="google">CREATE
                                             ACCOUNT</button>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <h5>Order Details</h5>
-                                    </div>
-                                    <table class="table table-responsive">
-                                        <thead>
-                                            <tr>
-                                                <th width="60%">Product</th>
-                                                <th width="15%">Quantity</th>
-                                                <th width="25%">Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>ffd</td>
-                                                <td>gfg</td>
-                                                <td>gdd</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-weight-bold">Subtotal</td>
-                                                <td></td>
-                                                <td>gdd</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-weight-bold">Total</td>
-                                                <td></td>
-                                                <td>gdd</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -195,9 +163,44 @@ require_once "header.php";
                     </div>
                 </div>
             </div>
+            <div class="col-md-12 col-lg-5">
+                <div class="checkout_oerder">
+                    <div class="title">
+                        <h5>Order Details</h5>
+                    </div>
+                    <div class="d-flex justify-content-between order order_dsc1">
+                        <div class="product_name">Product</div>
+                        <div class="product_quantity">Quantity</div>
+                        <div class="product_total">Total</div>
+                    </div>
+                    <div class="d-flex justify-content-between order order_dsc2">
+                        <div class="product_name">
+                            <div class="media">
+                                <div class="media-left">
+                                    <img src="images/goldchain.jpg" class="img1" alt="">
+                                </div>
+                                <div class="media-body">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product_quantity">Quantity</div>
+                        <div class="product_total">Total</div>
+                    </div>
+                    <div class="d-flex justify-content-between order_dsc1">
+                        <div class="subtotal">Subtotal</div>
+                        <div>0</div>
+                    </div>
+                    <div class="d-flex justify-content-between order_dsc1">
+                        <div class="Total">Total</div>
+                        <div>0</div>
+                    </div>
+                    <div class="proceed_container">
+                        <input type="submit" id="proceedbtn" class="btn" value="Proceed to Pyment">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<?php
+    <?php
     require_once "footer.php";
 ?>

@@ -104,14 +104,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['id']))
                             Price Details
                         </div>
                         <div class="body">
-                        <?php
-            if(isset($TotalItemsInCart)){?>
+                            <?php
+                              if(isset($TotalItemsInCart)){?>
                             <div class="main_1 d-flex justify-content-between">
                                 <div>
-                                    Price (<?php echo $TotalItemsInCart; ?>) 
+                                    Price (<?php echo $TotalItemsInCart; ?>)
                                 </div>
                                 <div>
-                                <?php echo $currency .$CartTotal; ?>
+                                    <?php echo $currency .$CartTotal; ?>
                                 </div>
                             </div>
                             <div class="main_2 d-flex  justify-content-between">
@@ -127,18 +127,21 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['id']))
                                     Amount Payable
                                 </div>
                                 <div>
-                                <?php echo $currency .$CartTotal; ?>
+                                    <?php echo $currency .$CartTotal; ?>
                                 </div>
                             </div>
                             <div class="saving">
                                 Your Total Savings on this order ₹620
                             </div>
-            <?php } ?>
+                            <?php } ?>
                         </div>
+                    </div>
+                    <div class="proceed_order">
+                        <input type="submit" id="proceedbtn" class="btn" value="Proceed to Checkout">
                     </div>
                 </div>
             </div>
-           
+
         </div>
     </div>
 
