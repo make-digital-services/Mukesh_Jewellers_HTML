@@ -1967,3 +1967,11 @@ form#login_form .btn.btn-primary {
     color: white;
     margin-top: 10px;
 }
+
+
+#billingForm{
+    display: none;
+}
+#shippingForm{
+    display: none;
+}

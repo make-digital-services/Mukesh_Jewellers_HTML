@@ -56,6 +56,10 @@ $responseUser = json_decode($make_callUser, true);
 if($responseUser['value']){
     $userdata= $responseUser['data'];
     }else{
+        if(basename($_SERVER['PHP_SELF'])=='myaccount.php' || basename($_SERVER['PHP_SELF'])=='order.php' || basename($_SERVER['PHP_SELF'])=='wishlist.php' || basename($_SERVER['PHP_SELF'])=='orderdetails.php'  || basename($_SERVER['PHP_SELF'])=='changepassword.php'){
+           header('Location:index.php');
+            // echo '<script>location.href="index.php"</script>';
+        }
    $errors = $responseUser['message'];
 }
 
