@@ -123,7 +123,7 @@ if(isset($_POST['logout'])){
                                                 <li><a href="myaccount.php">My Account</a></li>
                                                 <li><a href="changepassword.php">Change Password</a></li>
                                                 <li><a href="#">Order History</a></li>
-                                                <li><a href="">MY Wishlist</a></li>
+                                                <li><a href="wishlist.php">MY Wishlist</a></li>
                                                 <li>
                                                     <form method="POST">
                                                         <button type="submit" name="logout">Logout</button>

@@ -19,7 +19,9 @@ $productName= $_GET['name'];
   if($response['value']){
       $data     = $response['TotalItemsInCart'];
     echo "<script> $('#header').load('header.php')</script>";
-    echo '<script> alert("Product added to Cart");</script>';
+    echo '<script> showToaster("Product added to Cart!", "success");</script>';      
+    //clear post data to avoid resubmission on refresh
+    echo '<script>history.pushState({}, "", "")</script>';  
   }else{
      $errors = $response['message'];
   }

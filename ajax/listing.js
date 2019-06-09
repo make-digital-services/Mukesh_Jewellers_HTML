@@ -22,7 +22,6 @@ function sort() {
             // console.log("aaaaaaaaa", data);
             $('#showing').html(data.data.length);
             $("#product-listings").html(data.html); //total items count fetch in cart-info element
-
         });
     }
 }
@@ -75,6 +74,33 @@ function addToCart(event) {
     }).done(function (data) { //on success
         showToaster("Product added to Cart!", "success");
         $('#header').load('header.php');
+    })
+    // event.preventDefault();
+}
+
+
+//Add Item to Watch list
+
+function addToWatchlist(event) {
+    var form_data = {
+        product_id: event.srcElement.id
+    }
+    $.ajax({
+        url: "http://192.168.0.35/mjbackend/index.php/api/addToWatchlist",
+        type: "POST",
+        crossDomain: false,
+        xhrFields: {
+            withCredentials: true
+        },
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(form_data)
+    }).done(function (data) { //on success
+        if(data.value){
+            showToaster("Product added to Watchlist!", "success");
+        }else{
+            showToaster(data.message, "error");
+        }
     })
     // event.preventDefault();
 }
