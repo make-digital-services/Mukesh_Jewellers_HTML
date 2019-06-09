@@ -1,17 +1,7 @@
 <?php
 require_once "db.php";
 require_once "header.php";
-$make_call = callAPI('GET', 'getCart', false);
-$response = json_decode($make_call, true);
-//  print_r($response);
-if($response['value']){
-    $cartdata= $response['data'];
-    $TotalItemsInCart = $response['TotalItemsInCart'];
-    $CartTotal = $response['CartTotal'];
-  }else{
-   $errors = $response['message'];
-}
- 
+
  
 
 if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['id']))

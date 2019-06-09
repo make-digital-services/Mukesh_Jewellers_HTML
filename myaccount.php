@@ -2,17 +2,6 @@
 require_once "db.php";
 require_once "header.php";
 
-// function getUserData(){
-$make_callUser = callAPI('GET', 'getUserDetails', false);
-$responseUser = json_decode($make_callUser, true);
-if($responseUser['value']){
-    $userdata= $responseUser['data'];
-    }else{
-   $errors = $responseUser['message'];
-}
-// }
-
-//  getUserData();
 //update personal details
 if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["savePd"])) { 
     $data_array =  array("name"=>$_POST['name'],"gender"=>$_POST['gender'],"email"=>$_POST['email'],"phone"=>$_POST['phone']);

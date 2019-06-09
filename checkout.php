@@ -7,9 +7,10 @@ require_once "header.php";
         <div class="row">
             <div class="col-md-12 col-lg-7">
                 <div class="checkout_container">
-                    <div class="login_container tab">
+                    <?php if(isset($userdata)){}else{?>
+                        <div class="login_container tab">
                         <div class="tab_heading active">
-                            <h5>1. Log In or Sign Up</h5>
+                            <h5>Log In or Sign Up</h5>
                         </div>
                         <div class="tab_body">
                             <div class="row">
@@ -43,9 +44,13 @@ require_once "header.php";
                             </div>
                         </div>
                     </div>
-                    <div class="delivery_address_container tab">
+                  <?php  }?>
+                    
+
+                  <?php if(isset($userdata)){?>
+                        <div class="delivery_address_container tab">
                         <div class="tab_heading disactive">
-                            <h5>2. Delivery Address</h5>
+                            <h5>Delivery Address</h5>
                         </div>
                         <div class="tab_body">
                             <div class="errors">
@@ -53,9 +58,37 @@ require_once "header.php";
                             <form action="" method="post" id="deliveryaddressform">
                                 <div class="form-group">
                                     <label for="">Name</label>
-                                    <input type="text" id="name" name="name" class="form-control" required>
+                                    <input type="text" id="name" value="<?php echo $userdata['name']; ?>" name="name" class="form-control" required>
                                 </div>
+
                                 <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Address</label>
+                                            <textarea rows="4" required name="shippingaddress" class="form-control"
+                                                cols="50"><?php echo $userdata['shippingaddress']; ?></textarea>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="">Pin Code</label>
+                                            <input type="text" value="<?php echo $userdata['shippingpincode']; ?>" name="shippingpincode" id="pin" class="form-control" required>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group mb-4">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">City</label>
+                                            <input type="text" value="<?php echo $userdata['shippingcity']; ?>" name="shippingcity" id="city" class="form-control" required>
+                                         </div>
+                                        <div class="col-md-6">
+                                            <label for="">State</label>
+                                            <input type="text" value="<?php echo $userdata['shippingstate']; ?>" name="shippingstate" id="state" class="form-control" required>
+                                           </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="form-group">
                                     <label for="">Address</label>
                                     <textarea rows="4" required name="address" class="form-control"
                                         cols="50"></textarea>
@@ -94,33 +127,54 @@ require_once "header.php";
                                             <input type="text" name="pin" id="pin" class="form-control" required>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group d-flex justify-content-end">
-                                    <button id="btnContinue" class="btn cust_btn1">continue</button>
-                                </div>
+                                </div> -->
+                                <!-- <div class="form-group d-flex justify-content-end">
+                                    <button id="btnContinue" class="btn cust_btn1">Next</button>
+                                </div> -->
                             </form>
                         </div>
                     </div>
                     <div class="order_container tab">
                         <div class="tab_heading disactive">
-                            <h5>3. Billing Address</h5>
+                            <h5>Billing Address</h5>
                         </div>
                         <div class="tab_body">
                             <div class="errors">
                             </div>
                             <form action="" method="post" id="billingaddressform">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="name1">Name</label>
-                                        <input type="text" id="name1" name="name1" class="form-control" required>
+                            <div class="form-group">
+                                    <label for="">Name</label>
+                                    <input type="text" value="<?php echo $userdata['name']; ?>" id="name" name="name" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Address</label>
+                                            <textarea rows="4" required name="billingaddress" class="form-control"
+                                                cols="50"><?php echo $userdata['billingaddress']; ?></textarea>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="">Pin Code</label>
+                                            <input type="text" value="<?php echo $userdata['billingpincode']; ?>" name="billingpincode" id="pin" class="form-control" required>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="address1">Address</label>
-                                        <textarea rows="4" required name="address1" id="address1" class="form-control"
-                                            cols="50"></textarea>
-                                    </div>
+
                                 </div>
                                 <div class="form-group mb-4">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">City</label>
+                                            <input type="text" value="<?php echo $userdata['billingcity']; ?>" name="billingcity" id="city" class="form-control" required>
+                                                </div>
+                                        <div class="col-md-6">
+                                            <label for="">State</label>
+                                            <input type="text" value="<?php echo $userdata['billingstate']; ?>" name="billingstate" id="state" class="form-control" required>
+                                          </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="form-group mb-4">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="city1">City</label>
@@ -154,50 +208,65 @@ require_once "header.php";
                                             <input type="text" name="pin1" id="pin1" class="form-control" required>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group d-flex justify-content-end">
-                                    <button id="proceedbtn" class="btn cust_btn1">Place Order</button>
-                                </div>
+                                </div> -->
+                                <!-- <div class="form-group d-flex justify-content-end">
+                                    <button id="proceedbtn" class="btn cust_btn1">Next</button>
+                                </div> -->
                             </form>
                         </div>
                     </div>
+                    <?php }else{
+                  echo "Please Login to continue Checkout";
+                     }?>
+
                 </div>
             </div>
             <div class="col-md-12 col-lg-5">
+            <?php
+            if(isset($TotalItemsInCart)){?>
                 <div class="checkout_oerder">
                     <div class="title">
-                        <h5>Order Details</h5>
+                        <h5>Order Summary</h5>
                     </div>
                     <div class="d-flex justify-content-between order order_dsc1">
                         <div class="product_name">Product</div>
                         <div class="product_quantity">Quantity</div>
                         <div class="product_total">Total</div>
                     </div>
-                    <div class="d-flex justify-content-between order order_dsc2">
+                    <?php
+                      if(isset($cartdata)){
+                        foreach($cartdata as $key => $value){
+                    echo'<div class="d-flex justify-content-between order order_dsc2">
                         <div class="product_name">
                             <div class="media">
                                 <div class="media-left">
-                                    <img src="images/goldchain.jpg" class="img1" alt="">
+                                    <img src="'.$value['image'].'" class="img1" alt="">
                                 </div>
                                 <div class="media-body">
+                                '.$value['name'].'
                                 </div>
                             </div>
                         </div>
-                        <div class="product_quantity">Quantity</div>
-                        <div class="product_total">Total</div>
-                    </div>
+                        <div class="product_quantity">'.$value['quantity'].'</div>
+                        <div class="product_total"> '.$currency.'  '.$value['quantity'] * $value['final_price'].'</div>
+                    </div>';
+                        }
+                    }
+                    ?>
                     <div class="d-flex justify-content-between order_dsc1">
                         <div class="subtotal">Subtotal</div>
-                        <div>0</div>
+                        <div> <?php echo $currency .$CartTotal; ?></div>
                     </div>
                     <div class="d-flex justify-content-between order_dsc1">
                         <div class="Total">Total</div>
-                        <div>0</div>
+                        <div> <?php echo $currency .$CartTotal; ?></div>
                     </div>
                     <div class="proceed_container">
                         <input type="submit" id="proceedbtn" class="btn" value="Proceed to Pyment">
                     </div>
                 </div>
+
+                <?php } ?>
             </div>
         </div>
     </div>
