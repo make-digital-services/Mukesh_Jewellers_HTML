@@ -56,6 +56,10 @@ $responseUser = json_decode($make_callUser, true);
 if($responseUser['value']){
     $userdata= $responseUser['data'];
     }else{
+        if(basename($_SERVER['PHP_SELF'])=='myaccount.php' || basename($_SERVER['PHP_SELF'])=='order.php' || basename($_SERVER['PHP_SELF'])=='wishlist.php' || basename($_SERVER['PHP_SELF'])=='orderdetails.php'  || basename($_SERVER['PHP_SELF'])=='changepassword.php'){
+           header('Location:index.php');
+            // echo '<script>location.href="index.php"</script>';
+        }
    $errors = $responseUser['message'];
 }
 
@@ -123,7 +127,7 @@ if(isset($_POST['logout'])){
                                                 <li><a href="myaccount.php">My Account</a></li>
                                                 <li><a href="changepassword.php">Change Password</a></li>
                                                 <li><a href="#">Order History</a></li>
-                                                <li><a href="">MY Wishlist</a></li>
+                                                <li><a href="wishlist.php">MY Wishlist</a></li>
                                                 <li>
                                                     <form method="POST">
                                                         <button type="submit" name="logout">Logout</button>

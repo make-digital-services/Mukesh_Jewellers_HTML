@@ -1,6 +1,19 @@
 <?php
 require_once "db.php";
 require_once "header.php";
+
+if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["submitContact"])) { 
+    $data_array =  array("name"=>$_POST['name'],"email"=>$_POST['email'],"phone"=>$_POST['phone'],"subject"=>$_POST['subject'],"message"=>$_POST['message']);
+    $make_call = callAPI('POST', 'submitContact', json_encode($data_array));
+    $response = json_decode($make_call, true);
+     if($response['value']){
+        echo '<script> showToaster("Thank you for getting in touch! We will get back to you shortly.", "success");</script>';  
+    //clear post data to avoid resubmission on refresh
+    echo '<script>history.pushState({}, "", "")</script>';
+  }else{
+     $errors = $response['message'];
+  }
+ }
 ?>
 <div class="container-fluid details-container" id="contactus">
     <div class="container">
@@ -12,7 +25,7 @@ require_once "header.php";
                             <h5 class="mb-0">Send Us a Message</h5>
                         </div>
                         <div class="tab_body">
-                            <form action="" method="post" id="contactform">
+                            <form action="contactus.php" method="post" id="contactform">
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -29,7 +42,7 @@ require_once "header.php";
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <label for="number">Phone</label>
-                                            <input type="text" name="number" id="number" class="form-control" required>
+                                            <input type="text" maxlength="10" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" name="phone" id="phone" class="form-control" required>
                                         </div>
                                         <div class="col-lg-6">
                                             <label for="subject">Subject</label>
@@ -43,7 +56,7 @@ require_once "header.php";
                                     <textarea name="message" id="message" class="form-control" rows="5"></textarea>
                                 </div>
                                 <div class="d-flex justify-content-end">
-                                    <input type="submit" value="Send" id="contactusbtn" class="btn">
+                                    <input type="submit" value="Send" name="submitContact" id="contactusbtn" class="btn">
                                 </div>
                             </form>
                         </div>

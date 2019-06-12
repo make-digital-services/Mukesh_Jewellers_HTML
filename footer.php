@@ -5,8 +5,8 @@
 
                 <ul class="col-lg-2">
                     <li><a href="javascript:;">About Us</a></li>
-                    <li><a href="javascript:;">Contact Us</a></li>
-                    <li><a href="javascript:;">Privacy Policy</a></li>
+                    <li><a href="contactus.php">Contact Us</a></li>
+                    <li><a href="content.php?name=privacy">Privacy Policy</a></li>
                     <li><a href="javascript:;">Terms &amp; Conditions</a></li>
                 </ul>
                 <ul class="col-lg-2">

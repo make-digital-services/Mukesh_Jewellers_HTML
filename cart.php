@@ -1,17 +1,7 @@
 <?php
 require_once "db.php";
 require_once "header.php";
-$make_call = callAPI('GET', 'getCart', false);
-$response = json_decode($make_call, true);
-//  print_r($response);
-if($response['value']){
-    $cartdata= $response['data'];
-    $TotalItemsInCart = $response['TotalItemsInCart'];
-    $CartTotal = $response['CartTotal'];
-  }else{
-   $errors = $response['message'];
-}
- 
+
  
 
 if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['id']))
@@ -93,25 +83,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['id']))
                                 Total Price :
                             </div>
                             <div>
-                                <a href="#"><button class="place_btn">Place Order</button></a>
+                                <a href="order.php"><button class="place_btn">Place Order</button></a>
                             </div>
                         </div> -->
                     </div>
                 </div>
                 <div class="col-lg-4">
+                <?php
+            if(isset($TotalItemsInCart)){?>
                     <div id="product-total">
                         <div class="title">
                             Price Details
                         </div>
                         <div class="body">
-                            <?php
-                              if(isset($TotalItemsInCart)){?>
+                 
                             <div class="main_1 d-flex justify-content-between">
                                 <div>
-                                    Price (<?php echo $TotalItemsInCart; ?>)
+                                    Price (<?php echo $TotalItemsInCart; ?>) 
                                 </div>
                                 <div>
-                                    <?php echo $currency .$CartTotal; ?>
+                                <?php echo $currency .$CartTotal; ?>
                                 </div>
                             </div>
                             <div class="main_2 d-flex  justify-content-between">
@@ -127,21 +118,22 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['id']))
                                     Amount Payable
                                 </div>
                                 <div>
-                                    <?php echo $currency .$CartTotal; ?>
+                                <?php echo $currency .$CartTotal; ?>
                                 </div>
                             </div>
-                            <div class="saving">
+                            <!-- <div class="saving">
                                 Your Total Savings on this order ₹620
-                            </div>
-                            <?php } ?>
+                            </div> -->
+         
                         </div>
                     </div>
-                    <div class="proceed_order">
-                        <input type="submit" id="proceedbtn" class="btn" value="Proceed to Checkout">
+                    <div class="proceed_order" >
+                        <a href="checkout.php"><input type="submit" id="proceedbtn" class="btn" value="Proceed to Checkout"></a>
                     </div>
                 </div>
+                <?php } ?>
             </div>
-
+           
         </div>
     </div>
 

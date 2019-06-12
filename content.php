@@ -16,8 +16,8 @@ if($response['value']){
             <div class="row">
                 <div class="col-lg-12">
                     <div id="content_container">
-                        <h2><?php echo $contentdata['name'] ?>dfdf</h2>
-                        <p><?php echo $contentdata['description'] ?>fdg</p>
+                        <h2><?php echo $contentdata['name'] ?></h2>
+                        <p><?php echo $contentdata['description'] ?></p>
                     </div>
                 </div>
             </div>
