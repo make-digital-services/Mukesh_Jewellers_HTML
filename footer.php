@@ -66,6 +66,8 @@
 
 
 <!-- Latest compiled JavaScript -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/jquery.flexslider.js"></script>
 <script type="text/javascript" src="js/simpleBanner.js"></script>
 <script type="text/javascript">

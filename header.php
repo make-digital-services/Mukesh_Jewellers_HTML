@@ -4,7 +4,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
     <link href="css/flexslider.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,9 +15,8 @@
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/jquery.exzoom.css" rel="stylesheet" />
     <title>Mukesh Jewellers</title>
-
     <!-- jQuery library -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
     <!-- Latest compiled JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
@@ -80,14 +80,14 @@ if(isset($_POST['logout'])){
     <div id="loader"></div>
     <div id="toaster"></div>
     <header id="header">
-        
+
         <div class="logo-container container-fluid">
-               <div class="row">
+            <div class="row">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="logo">
-                             <a href="index.php">   <img src="images/logo1.png" alt=""></a>
+                                <a href="index.php"> <img src="images/logo1.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-9 right-box-header">
@@ -182,4 +182,4 @@ if(isset($_POST['logout'])){
     </header>
 
     <!-- load js -->
-<script src="js/common.js"></script>
+    <script src="js/common.js"></script>

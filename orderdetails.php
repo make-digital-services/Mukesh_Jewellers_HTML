@@ -112,6 +112,7 @@ elseif($orderdata['paymentmethod'] == 4)
             </div>
           </div>
         </div>
+        
         <!-- order deatils -->
         <div class="col-lg-12 col-md-12 col-sm-12 col-lg-12 table-container">
           <ul class="ui-table">
@@ -132,6 +133,7 @@ elseif($orderdata['paymentmethod'] == 4)
               </li>
             </div>
             <div class="tbody">
+             
 
             <?php 
                     foreach($order_items as $key => $value ){
