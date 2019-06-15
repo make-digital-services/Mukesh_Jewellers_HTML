@@ -11,7 +11,6 @@ $categoryId = $categoryData['id'];
 //get product listing by category id
 $sql = "SELECT p.`id`, p.`name`,pi.image , p.`description`, p.`price`, p.`discount`,  p.`final_price`,  p.`metatitle`, p.`metadesc`, p.`metakeyword`, p.`quantity`, p.`subcategory`, p.`category`, p.`sizechart` FROM `product` p LEFT JOIN product_image pi ON p.id=pi.product_id WHERE p.category=$categoryId GROUP BY p.id";
 $listingData = $con->query($sql);
-
 ?>
 <link rel="stylesheet" type="text/css" href="http://cdn.webrupee.com/font">
 
@@ -116,8 +115,9 @@ $listingData = $con->query($sql);
 
 
 <script>
-var categoryId = <?php echo $categoryId ?>;
+var categoryId = <?php echo $categoryId; ?>;
 </script>
+
 <script src="js/common.js"></script>
 <script src="ajax/listing.js"></script>
 <?php

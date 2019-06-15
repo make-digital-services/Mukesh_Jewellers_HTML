@@ -1,6 +1,6 @@
 function getCart() {
         $.ajax({
-            url: "http://virarcity.com/mjbackend/index.php/API/getCart",
+            url: apiUrl+"getCart",
             type: 'GET',
             dataType: "json",
            }).done(function(data) { //on success

@@ -6,9 +6,8 @@ $("#login_form").submit(function(e){ //user clicks form submit button
      password:$("#pwd").val()
  }
      $.ajax({ 
-     url: "http://192.168.0.35/mjbackend/index.php/api/login",
-    //  url: "http://virarcity.com/mjbackend/index.php/API/login",
-     type: "POST",
+     url: apiUrl+"login",
+       type: "POST",
  contentType:"application/json; charset=utf-8",
      dataType:"json", 
      data: JSON.stringify(form_data)

@@ -1,3 +1,6 @@
+var apiUrl="http://localhost/mjbackend/index.php/API/";
+// var apiUrl="http://virarcity.com/mjbackend/index.php/API/";
+
 function showToaster(message, type){
     $("#toaster").html(message);
     $("#toaster").addClass(type);
@@ -7,3 +10,4 @@ function showToaster(message, type){
         $("#toaster").removeClass("success");
      }, 1000);
 }
+

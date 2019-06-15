@@ -3,6 +3,7 @@ var filterObj = {
     purity: [],
     price: []
 }
+
 //sort products
 function sort() {
     if (categoryId) {
@@ -12,9 +13,7 @@ function sort() {
             filterObj: filterObj
         }
         $.ajax({
-            url: "http://192.168.0.35/mjbackend/index.php/api/getAllProduct",
-            // url: "http://virarcity.com/mjbackend/index.php/API/getAllProduct",
-            // url: "<?php echo $apiUrl ?>getAllProduct",
+            url: apiUrl+"getAllProduct",
             type: 'POST',
             dataType: "json",
             data: JSON.stringify(filter_data)
@@ -62,7 +61,7 @@ function addToCart(event) {
         product_id: event.srcElement.id
     }
     $.ajax({
-        url: "http://192.168.0.35/mjbackend/index.php/api/addToCart",
+        url: apiUrl+"addToCart",
         type: "POST",
         crossDomain: false,
         xhrFields: {
@@ -86,7 +85,7 @@ function addToWatchlist(event) {
         product_id: event.srcElement.id
     }
     $.ajax({
-        url: "http://192.168.0.35/mjbackend/index.php/api/addToWatchlist",
+        url: apiUrl+"addToWatchlist",
         type: "POST",
         crossDomain: false,
         xhrFields: {
