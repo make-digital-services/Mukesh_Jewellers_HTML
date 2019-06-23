@@ -16,7 +16,7 @@
     <link href="css/jquery.exzoom.css" rel="stylesheet" />
     <title>Mukesh Jewellers</title>
     <!-- jQuery library -->
-    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
@@ -126,7 +126,7 @@ if(isset($_POST['logout'])){
                                             <ul class="dropdown_parent">
                                                 <li><a href="myaccount.php">My Account</a></li>
                                                 <li><a href="changepassword.php">Change Password</a></li>
-                                                <li><a href="#">Order History</a></li>
+                                                <li><a href="order.php">Order History</a></li>
                                                 <li><a href="wishlist.php">MY Wishlist</a></li>
                                                 <li>
                                                     <form method="POST">

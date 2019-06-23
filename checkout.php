@@ -1,6 +1,58 @@
 <?php
 require_once "db.php";
 require_once "header.php";
+
+//submit order
+if($_SERVER['REQUEST_METHOD'] == "POST") { 
+    print_r($_POST);
+if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["shippingaddress"])) { 
+    $data_array =  array("shippingaddress"=>$_POST['shippingaddress'],"shippingaddress"=>$_POST['shippingaddress'],"shippingpincode"=>$_POST['shippingpincode'],"shippingcity"=>$_POST['shippingcity'],"shippingstate"=>$_POST['shippingstate']);
+   $new_array = $data_array;
+    $make_call = callAPI('POST', 'submitOrder', json_encode($data_array));
+    $response = json_decode($make_call, true);
+     if($response['value']){
+        // $make_callUser = callAPI('GET', 'getUserDetails', false);
+        // $responseUser = json_decode($make_callUser, true);
+        // if($responseUser['value']){
+        //     $userdata= $responseUser['data'];
+        //     }else{
+        //    $errors = $responseUser['message'];
+        // }
+        // getUserData();
+    echo '<script> showToaster("Order Placed!", "success");</script>';  
+    //clear post data to avoid resubmission on refresh
+    echo '<script>history.pushState({}, "", "")</script>';
+   
+  }else{
+     $errors = $response['message'];
+  }
+}
+if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["billingaddress"])) { 
+    $data_arrayBill =  array("name"=>$_POST['billingname'],"billingname"=>$_POST['billingname'],"billingaddress"=>$_POST['billingaddress'],"billingpincode"=>$_POST['billingpincode'],"billingcity"=>$_POST['billingcity'],"billingstate"=>$_POST['billingstate']);
+   $new_arrayBill = $data_arrayBill;
+//    $new_arrayBill = array_merge($new_array,$data_arrayBill);
+    $make_call = callAPI('POST', 'submitOrder', json_encode($data_arrayBill));
+    $response = json_decode($make_call, true);
+     if($response['value']){
+        // $make_callUser = callAPI('GET', 'getUserDetails', false);
+        // $responseUser = json_decode($make_callUser, true);
+        // if($responseUser['value']){
+        //     $userdata= $responseUser['data'];
+        //     }else{
+        //    $errors = $responseUser['message'];
+        // }
+        // getUserData();
+    echo '<script> showToaster("Order Placed!", "success");</script>';  
+    //clear post data to avoid resubmission on refresh
+    echo '<script>history.pushState({}, "", "")</script>';
+   
+  }else{
+     $errors = $response['message'];
+  }
+}
+print_r($new_array);
+print_r($new_arrayBill);
+ }
 ?>
 <div class="container-fluid details-container" id="checkout">
     <div class="container">
@@ -55,10 +107,10 @@ require_once "header.php";
                         <div class="tab_body">
                             <div class="errors">
                             </div>
-                            <form action="" method="post" id="deliveryaddressform">
+                            <form action="checkout.php" method="post" id="deliveryaddressform">
                                 <div class="form-group">
                                     <label for="">Name</label>
-                                    <input type="text" id="name" value="<?php echo $userdata['name']; ?>" name="name" class="form-control" required>
+                                    <input type="text" id="name" value="<?php echo $userdata['name']; ?>" name="shippingname" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">
@@ -141,10 +193,10 @@ require_once "header.php";
                         <div class="tab_body">
                             <div class="errors">
                             </div>
-                            <form action="" method="post" id="billingaddressform">
+                            <form action="checkout.php" method="post" name="billingaddressform" id="billingaddressform">
                             <div class="form-group">
                                     <label for="">Name</label>
-                                    <input type="text" value="<?php echo $userdata['name']; ?>" id="name" name="name" class="form-control" required>
+                                    <input type="text" value="<?php echo $userdata['name']; ?>" id="name" name="billingname" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">
@@ -261,15 +313,26 @@ require_once "header.php";
                         <div class="Total">Total</div>
                         <div> <?php echo $currency .$CartTotal; ?></div>
                     </div>
+                   
                     <div class="proceed_container">
-                        <input type="submit" id="proceedbtn" class="btn" value="Proceed to Pyment">
+                        <input type="button" onclick="submitOrder()" id="proceedbtn" name="submitOrder" class="btn" value="Proceed to Payment">
                     </div>
+                  
                 </div>
-
+                
                 <?php } ?>
             </div>
         </div>
     </div>
+
+    <script>
+        function submitOrder(){
+            console.log("test");
+            document.getElementById("billingaddressform").submit();
+            document.getElementById("deliveryaddressform").submit();
+           
+        }
+        </script>
     <?php
     require_once "footer.php";
 ?>

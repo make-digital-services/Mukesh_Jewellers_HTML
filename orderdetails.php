@@ -50,8 +50,8 @@ if(isset($orderdata)){
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 ship-to-container sold-to">
               <div class="ship-to-wrapper">
-                <strong>Sold To:</strong>
-                <?php echo $orderdata['firstname'] .''.$orderdata['lastname'];?></strong>
+                <strong>Sold To:
+                <?php echo $orderdata['name'];?></strong>
                 <p><?php echo $orderdata['billingaddress'].','. $orderdata['billingcity'].','. $orderdata['billingcountry'] .','.$orderdata['billingstate'].'-'. $orderdata['billingpincode'];?>
                    </p>
                
